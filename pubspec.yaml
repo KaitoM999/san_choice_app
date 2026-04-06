@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  flutter_tts: ^4.0.2  
+  shared_preferences: ^2.2.2  # <-- これを追加！
 
 dev_dependencies:
   flutter_test:
@@ -20,5 +22,5 @@ flutter:
 
   assets:
     - assets/audio/
-    - assets/data/quiz/
+    - assets/data/
     - assets/images/  # <-- この一行を追加（フォルダごと指定できます）

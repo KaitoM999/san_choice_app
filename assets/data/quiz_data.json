@@ -1,0 +1,92 @@
+[
+  {
+    "question": {
+      "text": "Xin chào",
+      "meaning": "こんにちは",
+      "partOfSpeech": "挨拶",
+      "example": "Xin chào, tôi là Tanaka.",
+      "exampleMeaning": "こんにちは、私は田中です。"
+    },
+    "options": [
+      { "text": "Xin chào", "meaning": "こんにちは", "partOfSpeech": "挨拶", "example": "Xin chào mọi người!", "exampleMeaning": "皆さん、こんにちは！" },
+      { "text": "Tạm biệt", "meaning": "さようなら", "partOfSpeech": "挨拶", "example": "Hẹn gặp lại, tạm biệt.", "exampleMeaning": "また会いましょう、さようなら。" },
+      { "text": "Cảm ơn", "meaning": "ありがとう", "partOfSpeech": "挨拶", "example": "Cảm ơn bạn rất nhiều.", "exampleMeaning": "本当にありがとうございます。" }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": {
+      "text": "Cảm ơn",
+      "meaning": "ありがとう",
+      "partOfSpeech": "挨拶",
+      "example": "Cảm ơn vì món quà.",
+      "exampleMeaning": "プレゼントをありがとう。"
+    },
+    "options": [
+      { "text": "Xin lỗi", "meaning": "ごめんなさい", "partOfSpeech": "挨拶", "example": "Xin lỗi, tôi đến muộn.", "exampleMeaning": "遅れてすみません。" },
+      { "text": "Cảm ơn", "meaning": "ありがとう", "partOfSpeech": "挨拶", "example": "Cảm ơn sự giúp đỡ của bạn.", "exampleMeaning": "助けてくれてありがとう。" },
+      { "text": "Không sao", "meaning": "大丈夫です", "partOfSpeech": "挨拶", "example": "A: Xin lỗi. B: Không sao.", "exampleMeaning": "A:すみません。B:大丈夫ですよ。" }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": {
+      "text": "Tạm biệt",
+      "meaning": "さようなら",
+      "partOfSpeech": "挨拶",
+      "example": "Chúc ngủ ngon, tạm biệt.",
+      "exampleMeaning": "おやすみなさい、さようなら。"
+    },
+    "options": [
+      { "text": "Vâng", "meaning": "はい", "partOfSpeech": "返事", "example": "Vâng, tôi đồng ý.", "exampleMeaning": "はい、賛成です。" },
+      { "text": "Không", "meaning": "いいえ", "partOfSpeech": "返事", "example": "Không, tôi không biết.", "exampleMeaning": "いいえ、知りません。" },
+      { "text": "Tạm biệt", "meaning": "さようなら", "partOfSpeech": "挨拶", "example": "Tạm biệt, hẹn mai gặp lại.", "exampleMeaning": "さようなら、また明日。" }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": {
+      "text": "Hẹn gặp lại",
+      "meaning": "また会いましょう",
+      "partOfSpeech": "挨拶",
+      "example": "Hẹn gặp lại vào ngày mai.",
+      "exampleMeaning": "また明日会いましょう。"
+    },
+    "options": [
+      { "text": "Hẹn gặp lại", "meaning": "また会いましょう", "partOfSpeech": "挨拶", "example": "Tạm biệt, hẹn gặp lại!", "exampleMeaning": "さようなら、また会いましょう！" },
+      { "text": "Chúc may mắn", "meaning": "幸運を祈ります", "partOfSpeech": "挨拶", "example": "Chúc may mắn với kỳ thi.", "exampleMeaning": "試験頑張って（幸運を）。" },
+      { "text": "Rất vui được gặp bạn", "meaning": "はじめまして", "partOfSpeech": "挨拶", "example": "Rất vui được gặp bạn lần đầu.", "exampleMeaning": "はじめまして（お会いできて嬉しいです）。" }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": {
+      "text": "Xin lỗi",
+      "meaning": "すみません/ごめんなさい",
+      "partOfSpeech": "挨拶",
+      "example": "Xin lỗi, cho tôi hỏi...",
+      "exampleMeaning": "すみません、お尋ねしたいのですが…"
+    },
+    "options": [
+      { "text": "Vui lòng", "meaning": "お願いします", "partOfSpeech": "挨拶", "example": "Vui lòng cho tôi xem cái này.", "exampleMeaning": "これを見せてください。" },
+      { "text": "Xin lỗi", "meaning": "すみません/ごめんなさい", "partOfSpeech": "挨拶", "example": "Xin lỗi vì đã làm phiền.", "exampleMeaning": "邪魔をしてすみません。" },
+      { "text": "Cố lên", "meaning": "頑張れ", "partOfSpeech": "挨拶", "example": "Cố lên, bạn làm được mà!", "exampleMeaning": "頑張って、君ならできるよ！" }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": {
+      "text": "Không sao",
+      "meaning": "問題ない/大丈夫",
+      "partOfSpeech": "挨拶",
+      "example": "Việc đó không sao đâu.",
+      "exampleMeaning": "それは大丈夫（問題ない）ですよ。"
+    },
+    "options": [
+      { "text": "Chúc mừng", "meaning": "おめでとう", "partOfSpeech": "挨拶", "example": "Chúc mừng sinh nhật!", "exampleMeaning": "誕生日おめでとう！" },
+      { "text": "Tôi hiểu rồi", "meaning": "わかりました", "partOfSpeech": "挨拶", "example": "Tôi hiểu rồi, cảm ơn.", "exampleMeaning": "わかりました、ありがとう。" },
+      { "text": "Không sao", "meaning": "問題ない/大丈夫", "partOfSpeech": "挨拶", "example": "Không sao, đừng lo lắng.", "exampleMeaning": "大丈夫、心配しないで。" }
+    ],
+    "correctIndex": 2
+  }
+]
