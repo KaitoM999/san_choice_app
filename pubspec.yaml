@@ -10,7 +10,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   flutter_tts: ^4.0.2  
-  shared_preferences: ^2.2.2  # <-- これを追加！
+  shared_preferences: ^2.2.2  
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

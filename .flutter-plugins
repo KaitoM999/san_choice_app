@@ -1,5 +1,8 @@
 # This is a generated file; do not edit or check into version control.
 flutter_tts=/Users/morikaido/.pub-cache/hosted/pub.dev/flutter_tts-4.0.2/
+path_provider=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider-2.1.4/
+path_provider_android=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_android-2.2.4/
+path_provider_foundation=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.1/
 path_provider_linux=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
 path_provider_windows=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
 shared_preferences=/Users/morikaido/.pub-cache/hosted/pub.dev/shared_preferences-2.2.3/
