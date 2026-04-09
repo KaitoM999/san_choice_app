@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		zZhRdsncGNRJ/igzlSujrllVjb8=
+		S+8/D/aExDLHEGOPI3N51hOD2Zo=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		aVJkZjz/qz48gsqKqQonN7jIdT0=
+		BIG8d6UYwBZFbJfv9HNXozcb3BQ=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -72,6 +72,10 @@
 		<data>
 		pX1FPMV2hDE882Di95eJ19fI8Ps=
 		</data>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_angry.png</key>
+		<data>
+		QNT7S/q81woztAya5ePNYjiSs6A=
+		</data>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_considering.png</key>
 		<data>
 		p2DmrFDMTW7OooAnoU4zZ5F35c8=
@@ -80,9 +84,17 @@
 		<data>
 		PWFo1BrjJsaXyv1NRrOCp6EE0iM=
 		</data>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_glad.png</key>
+		<data>
+		3/POI5PjWM22uyRTgfZUUG+5Cfw=
+		</data>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_happy.png</key>
 		<data>
-		SGJcDiCJ1V6cny//0j+fMPWFGog=
+		oSQbGYFWQZ7LY4H23YtXf60voQs=
+		</data>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_sad.png</key>
+		<data>
+		Mtec1IZ2/ZZK6Rpo0EO9+Yz2U7k=
 		</data>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_thinking.png</key>
 		<data>
@@ -122,7 +134,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		HAw84ztVzHJcajMqFS9jLZ+uBFQ=
+		dDY8u/bZSCNZ1iHPt4/KGPXLFwA=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -143,14 +155,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TVdSTsb/d6OUSjWc/ApmsT7enHZ6niTb4EpAPgxCE3s=
+			cJtLRwwfudaBjYP+zgNV57UuBQl2fZeQDfD2G4p7MjQ=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0q0fIGKtK1vrMEWdFCa1Eyw4FBpde/8tcyrP55tdPkM=
+			BWMtE3erOdiIC8L1KitzpWG0OGRiD6SG5OOkgcz/hLo=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -251,6 +263,13 @@
 			AHC/zGu+9PUOb7PYoBEJeLfDCzuFE4yBGx2vCwYFOok=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_angry.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BKT48k18f5ygMjJmVg2NmqkEf7blqkeSZEvF18R57Wg=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_considering.png</key>
 		<dict>
 			<key>hash2</key>
@@ -265,11 +284,25 @@
 			OrfhiPqmCUlZe4uKKNEs9xj6Bq/HM/jYTYHdGapzo80=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_glad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pNR5EDKUQzr+205pX/DRWSfKrlGR9Oe6X6BjH62UM6U=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_happy.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KYgyzoGBGVFsaSxnHa37uPGvcdMZaoZLPUp4PapfYI8=
+			dJT10H7ZX810CAJPKLr56olQPntm0dRRaN0bVieZVG0=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/lauschan_tonakaikun_sad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tnYnBYaPTn8YCMi6KJzxJQ1rb/IOzfhD5Elhe1WYmHk=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/lauschan_tonakaikun_thinking.png</key>
@@ -339,7 +372,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IrVJSQtKdjSBOBTuQ4AnAojQiArlkeEM0CXNf7fTpCg=
+			eyvF3PH9xHD2LW9B4luKxx2P6FAfG7v0n3WrxHlGqH0=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
