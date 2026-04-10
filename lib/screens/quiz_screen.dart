@@ -23,13 +23,13 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
   // クイズの進行状態を管理する変数たち
   int _currentIndex = 0; // 現在表示している問題のインデックス（0からスタート）
   bool _isAnswered = false; // ユーザーが選択肢をタップして解答済みかどうか
-  int? _selectedIndex; // ユーザーが選んだ選択肢のインデックス（まだ選んでない時はnull）
+  int? _selectedIndex = 0; // ユーザーが選んだ選択肢のインデックス（まだ選んでない時はnull）
   int _score = 0; // 現在の正解数
   bool _isFinished = false; // 1ブロック（6問）すべて解き終わったかどうか
 
   // 現在表示するキャラクター画像のパス（初期値は仮設定。initStateでランダムに決まる）
   String _currentImagePath = '';
-  // 💡 今出題時に選ばれた「基本キャラクター」がどっちなのかを覚えておくための変数
+  // 今出題時に選ばれた「基本キャラクター」がどっちなのかを覚えておくための変数
   bool _isSantaMode = false; // trueならお母さんサンタ（claussan）、falseならトナカイコンビ（lauschan_tonakaikun）
 
   // アニメーション関連の変数
@@ -37,20 +37,39 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
   late AnimationController _floatController; // キャラクターをフワフワ上下に動かすタイマー
   late Animation<double> _floatAnimation; // 実際の移動量（0〜15ピクセル）を計算するもの
 
+  // 💡 結果画面で表示するターキー博士のセリフを保存する変数
+  String _resultMessage = '';
+
+  // 💡 4問以上正解した時の「祝福の言葉」リスト
+  final List<String> _successMessages = [
+    '『継続は力なり』じゃ！毎日の積み重ねが、今の素晴らしい結果を生んだんじゃな。ホッホッホ！いい新年を迎えられそうじゃわい！',
+    '『努力に勝る天才なし』とはよく言ったものじゃ。お主のひたむきながんばり、わしはちゃんと見とったぞ！新年のお年玉はたーんとやらんとな！',
+    '『千里の道も一歩から』じゃよ。一歩一歩、着実に賢くなっておるな。実に頼もしいぞ！クリスマスは⚪︎ンタッキーをたらふく用意しとくから、そっちでは何も準備しなくていいぞい！ほんとにほんとに！',
+    '『鉄は熱いうちに打て』じゃ！今の素晴らしい勢いのまま、次の問題もどんどん吸収していくんじゃぞ！それはそうと年末はわしとみんなで年越しそばを食べるんじゃぞ！約束じゃぞ！'
+  ];
+
+  // 💡 3問以下だった時の「励ましの言葉」リスト
+  final List<String> _failureMessages = [
+    '『為（な）せば成る、為さねば成らぬ何事も！』じゃ。。。次頑張ってみんなで初日の出を見に行こうぞ！',
+    '『失敗は成功のもと』じゃ！しっかり復習してもう一度チャレンジじゃ！それはそれとして新年の初詣とやらが楽しみじゃな！',
+    '『七転び八起き』じゃ！何度でも挑戦すれば必ず上達するぞ！それはそれとしてクリスマスにターキーを食べるのはもう古いわい！',
+    '『ローマは一日にして成らず！』コツコツ続けることが大事じゃよ！それはそうとクリスマスはケーキがあれば十分じゃ！'
+  ];
+
   @override
   void initState() {
     super.initState();
-    // 音声読み上げの設定（ベトナム語、少しゆっくりめの速度）
+    // 音声読み上げの初期設定（ベトナム語、少しゆっくりめの速度）
     _tts.setLanguage("vi-VN");
     _tts.setSpeechRate(0.5);
     
     // JSONファイルから指定されたブロックの問題を読み込み開始
     _quizFuture = _loadQuizData();
     
-    // 💡 最初（1問目）は右側（反転なし）にキャラクターを表示する設定
+    // 最初（1問目）は右側（反転なし）にキャラクターを表示する設定
     _isFlipped = false; 
 
-    // 💡 1問目のキャラクター（考え中の姿）を抽選してセットする
+    // 1問目のキャラクター（考え中の姿）を抽選してセットする
     _pickConsideringImage();
 
     // フワフワアニメーションの設定（3秒かけて行ったり来たりを永遠に繰り返す）
@@ -73,7 +92,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     super.dispose();
   }
 
-  // 💡 問題の選択肢画面（考え中）の画像を抽選するメソッド
+  // 問題の選択肢画面（考え中）の画像を抽選するメソッド
   void _pickConsideringImage() {
     final int rand = math.Random().nextInt(100); // 0から99までのランダムな数字を生成
     if (rand < 85) {
@@ -87,7 +106,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     }
   }
 
-  // 💡 解答後のリアクション画像をセットするメソッド（正解/不正解で分岐）
+  // 解答後のリアクション画像をセットするメソッド（正解/不正解で分岐）
   void _setReactionImage(bool isCorrect) {
     setState(() {
       if (_isSantaMode) {
@@ -244,7 +263,10 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                             const SizedBox(height: 10),
                             // 音声再生ボタン
                             IconButton(
-                              onPressed: () => _tts.speak(quiz.question.text),
+                              onPressed: () {
+                                _tts.setLanguage("vi-VN"); // ベトナム語を明示的にセット
+                                _tts.speak(quiz.question.text);
+                              },
                               icon: const Icon(Icons.volume_up, color: Colors.white, size: 50),
                             ),
                           ],
@@ -288,13 +310,14 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                                       if (index == quiz.correctIndex) {
                                         // 正解だった場合
                                         _score++; // スコアを＋1
-                                        _setReactionImage(true); // 💡 正解時のリアクション画像をセット
+                                        _setReactionImage(true); // 正解時のリアクション画像をセット
                                       } else {
                                         // 不正解だった場合
-                                        _setReactionImage(false); // 💡 不正解時のリアクション画像をセット
+                                        _setReactionImage(false); // 不正解時のリアクション画像をセット
                                       }
                                     });
                                     // 選んだ選択肢の「意味（ベトナム語）」を音声で読み上げる
+                                    _tts.setLanguage("vi-VN"); // ここもベトナム語を明示
                                     _tts.speak(quiz.options[index].text);
                                   },
                                   child: Text(
@@ -319,6 +342,10 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                   Positioned.fill(
                     child: Container(color: Colors.black54), 
                   ),
+                  
+                  // 正解の時だけ、星を散りばめる
+                  if (isCorrect) ..._buildStars(),
+                  
                   // 2. 暗いフィルターの「手前」にキャラクターを描画（浮き出て見える）
                   _buildCharacter(),
                   // 3. 一番手前に、解説ボックス（白い箱）を表示
@@ -374,7 +401,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
         // 解説が書かれた白いボックス
         Expanded(
           child: Container(
-            // 下の margin を大きく（260）空けることで、キャラクターの姿を隠さないようにする！
+            // 下の margin を大きく（260）空けることで、キャラクターの姿を隠さないようにする
             margin: const EdgeInsets.only(left: 20, right: 20, bottom: 260),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -409,7 +436,13 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                               children: [
                                 Text(word.text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                                 // 🔊 アイコンを押すとベトナム語を読み上げる
-                                IconButton(onPressed: () => _tts.speak(word.text), icon: const Icon(Icons.volume_up, size: 22)),
+                                IconButton(
+                                  onPressed: () {
+                                    _tts.setLanguage("vi-VN");
+                                    _tts.speak(word.text);
+                                  },
+                                  icon: const Icon(Icons.volume_up, size: 22),
+                                ),
                               ],
                             ),
                             Text('意味: ${word.meaning}', style: const TextStyle(fontSize: 18)),
@@ -436,13 +469,34 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                           // 次の問題へ行くときに、キャラクターの左右（反転）フラグをひっくり返す
                           _isFlipped = !_isFlipped; 
                           
-                          // 💡 次の問題用のキャラクター（考え中の姿）を再度抽選する
+                          // 次の問題用のキャラクター（考え中の姿）を再度抽選する
                           _pickConsideringImage();
                         });
                       } else {
                         // 最後の問題を解き終わった場合
                         await _saveScore(); // スコアを保存して…
-                        setState(() => _isFinished = true); // 「終了フラグ」を立てて、結果画面へ切り替える
+                        
+                        // すべての問題が終わったタイミングで、結果に合わせてセリフをランダム抽選
+                        final random = math.Random();
+                        String nextMessage = ''; // 一時的な変数を用意
+                        
+                        if (_score >= 4) {
+                          // 4問以上なら成功メッセージから選ぶ
+                          nextMessage = _successMessages[random.nextInt(_successMessages.length)];
+                        } else {
+                          // 3問以下なら失敗メッセージから選ぶ
+                          nextMessage = _failureMessages[random.nextInt(_failureMessages.length)];
+                        }
+
+                        // setStateの中で確実に画面（変数）に反映させる
+                        setState(() {
+                          _resultMessage = nextMessage;
+                          _isFinished = true; // 「終了フラグ」を立てて、結果画面へ切り替える
+                        });
+
+                        // 💡 ターキー博士の読み上げは不自然だったのでオフにしました
+                        // await _tts.setLanguage("ja-JP"); 
+                        // _tts.speak(_resultMessage); 
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -467,44 +521,112 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
   // 1ブロックすべて終わったあとに表示される「結果発表」画面
   Widget _buildResultScreen(List<Quiz> quizList) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 1.2,
-            colors: [Color(0xFFE53935), Color(0xFF8B0000)],
+      body: Stack( // 背景、雪、コンテンツを重ねるためのStack
+        children: [
+          // 1. 全体背景（グラデーション）
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: RadialGradient(
+                  center: Alignment.center,
+                  radius: 1.2,
+                  colors: [Color(0xFFE53935), Color(0xFF8B0000)], // 赤色のグラデーション背景
+                ),
+              ),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.emoji_events, size: 120, color: Colors.amberAccent), // 大きなトロフィーアイコン
-            const SizedBox(height: 20),
-            Text(
-              'ブロック終了！',
-              style: GoogleFonts.notoSansJp(
-                textStyle: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.w900),
+          
+          // 2. 雪の結晶を背景の上に配置
+          ..._buildSnowflakes(),
+
+          // 成績が良ければ（4問以上正解）ここにも星を散りばめる
+          if (_score >= 4) ..._buildStars(),
+
+          // 3. コンテンツ
+          Center( // コンテンツを中央に配置
+            child: SingleChildScrollView( // コンテンツが多い場合にスクロール可能にする
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // 上部の余白
+                  const SizedBox(height: 50),
+                  
+                  const Icon(Icons.emoji_events, size: 120, color: Colors.amberAccent), // 大きなトロフィーアイコン
+                  const SizedBox(height: 20),
+                  Text(
+                    'ブロック終了！',
+                    style: GoogleFonts.notoSansJp(
+                      textStyle: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.w900),
+                    ),
+                  ),
+                  Text(
+                    '${quizList.length}問中 $_score 問正解', // 例：6問中 4 問正解
+                    style: const TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
+                  ),
+
+                  // ターキー博士のセリフを吹き出し風に表示
+                  const SizedBox(height: 20),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Colors.amber, width: 3), // おめでたい金色の枠
+                      boxShadow: const [
+                        BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(0, 5))
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        const Text('🦃', style: TextStyle(fontSize: 40)), // ターキー博士のアイコン代わり
+                        const SizedBox(width: 15),
+                        Expanded(
+                          child: Text(
+                            _resultMessage,
+                            style: GoogleFonts.mPlus1p(
+                              textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87, height: 1.5),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+                  // 成績に応じて画像を出力（4/6以上なら成功、それ以外は失敗）
+                  Image.asset(
+                    _score >= 4
+                        ? 'assets/images/result_success_images.png'
+                        : 'assets/images/result_failure_images.png',
+                    width: 350, 
+                    height: 350,
+                    fit: BoxFit.contain,
+                    gaplessPlayback: true,
+                    errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                  ),
+
+                  const SizedBox(height: 40),
+
+                  // ブロック選択画面へ戻るボタン
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context), 
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2E7D32),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                    ),
+                    child: const Text('戻る', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  ),
+                  
+                  // 下部の余白
+                  const SizedBox(height: 50),
+                ],
               ),
             ),
-            Text(
-              '${quizList.length}問中 $_score 問正解', // 例：6問中 4 問正解
-              style: const TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 60),
-            // ブロック選択画面へ戻るボタン
-            ElevatedButton(
-              onPressed: () => Navigator.pop(context), 
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF2E7D32),
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-              ),
-              child: const Text('戻る', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -523,6 +645,26 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     return Positioned(
       top: top, left: left, right: right, bottom: bottom,
       child: Icon(Icons.ac_unit, color: Colors.white.withOpacity(opacity), size: size),
+    );
+  }
+
+  // 背景に散りばめる星リストを作る部品
+  List<Widget> _buildStars() {
+    return [
+      _pStar(top: 80, left: 50, size: 30),
+      _pStar(top: 150, right: 60, size: 45),
+      _pStar(bottom: 200, left: 80, size: 35),
+      _pStar(bottom: 300, right: 40, size: 50),
+      _pStar(top: 350, left: 30, size: 25),
+      _pStar(top: 450, right: 80, size: 30),
+    ];
+  }
+
+  // 星アイコン1つを配置するための補助部品
+  Widget _pStar({double? top, double? left, double? right, double? bottom, required double size, double opacity = 0.8}) {
+    return Positioned(
+      top: top, left: left, right: right, bottom: bottom,
+      child: Icon(Icons.star, color: Colors.amberAccent.withOpacity(opacity), size: size),
     );
   }
 }
