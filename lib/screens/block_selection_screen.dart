@@ -1,11 +1,11 @@
-import 'dart:convert'; // JSON形式のデータをDartで扱えるようにするためのパッケージ
-import 'package:flutter/material.dart'; // Flutterの基本UIパーツ（Widget）を使うためのパッケージ
-import 'package:flutter/services.dart'; // rootBundleを使って、アプリ内のファイル（JSONなど）を読み込むためのパッケージ
-import 'package:google_fonts/google_fonts.dart'; // Googleフォント（Noto SansやM PLUS 1pなど）を使うためのパッケージ
-import 'package:shared_preferences/shared_preferences.dart'; // 端末にスコアなどのデータを保存・読み込みするためのパッケージ
-import 'quiz_screen.dart'; // クイズ画面へ遷移するためにインポート
+import 'dart:convert'; 
+import 'package:flutter/material.dart'; 
+import 'package:flutter/services.dart'; 
+import 'package:google_fonts/google_fonts.dart'; 
+import 'package:shared_preferences/shared_preferences.dart'; 
+import '../models/quiz_model.dart'; // 💡 Quizモデルをインポート（データを取り出すため）
+import 'quiz_screen.dart'; 
 
-// ブロック選択画面の土台となるStatefulWidget（画面の状態が変化するWidget）
 class BlockSelectionScreen extends StatefulWidget {
   const BlockSelectionScreen({super.key});
 
@@ -13,44 +13,35 @@ class BlockSelectionScreen extends StatefulWidget {
   State<BlockSelectionScreen> createState() => _BlockSelectionScreenState();
 }
 
-// 実際の画面の動きや見た目を作るStateクラス
 class _BlockSelectionScreenState extends State<BlockSelectionScreen> with SingleTickerProviderStateMixin {
   
-  // 各ブロックの「過去の最高スコア」を保存する辞書（キーがブロック番号、値がスコア）
   Map<int, int> _scores = {};
-  
-  // 右下にいるキャラクターをフワフワ動かすためのコントローラー
   late AnimationController _thinkingController;
   
-  int _totalBlocks = 0; // JSONから計算した、全体のブロック数
-  bool _isLoading = true; // データを読み込み中かどうかを判定するフラグ
-
-  // 💡 追加：出題形式を管理する変数（true: ベトナム語→日本語, false: 日本語→ベトナム語）
+  int _totalBlocks = 0; 
+  bool _isLoading = true; 
   bool _isVietToJpn = true;
 
-  // 画面が表示される「最初の一度だけ」実行されるメソッド
+  // 💡 追加：全クイズデータを保持するリスト
+  List<Quiz> _allQuizzes = [];
+
   @override
   void initState() {
     super.initState();
-    
-    // データの読み込みを開始
     _initializeData(); 
     
-    // キャラクターのフワフワアニメーションの設定
     _thinkingController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     )..repeat(reverse: true); 
   }
 
-  // 画面が閉じられるときに実行される「お片付け」メソッド
   @override
   void dispose() {
     _thinkingController.dispose(); 
     super.dispose();
   }
 
-  // データ読み込みの全体を管理するメソッド
   Future<void> _initializeData() async {
     await _loadTotalBlocks(); 
     await _loadScores();      
@@ -62,20 +53,21 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     }
   }
 
-  // JSONファイルから全問題数を取得し、ブロック数を計算するメソッド
+  // 💡 修正：JSONからクイズデータをすべて読み込んで保持する
   Future<void> _loadTotalBlocks() async {
     try {
       final String response = await rootBundle.loadString('assets/data/quiz_data.json');
       final List<dynamic> data = json.decode(response);
-      final int totalQuestions = data.length;
-      _totalBlocks = (totalQuestions / 6).ceil();
+      
+      // JSONデータをQuizモデルのリストに変換
+      _allQuizzes = data.map((json) => Quiz.fromJson(json)).toList();
+      _totalBlocks = (_allQuizzes.length / 6).ceil();
     } catch (e) {
       debugPrint("データの読み込みエラー: $e");
       _totalBlocks = 0; 
     }
   }
 
-  // スマホ本体に保存されている過去のスコアを読み込むメソッド
   Future<void> _loadScores() async {
     final prefs = await SharedPreferences.getInstance(); 
     Map<int, int> tempScores = {};
@@ -89,7 +81,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     _scores = tempScores; 
   }
 
-  // 実際の画面のレイアウトを構築するメソッド
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,16 +94,13 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
         ),
         child: Stack(
           children: [
-            // 背景の雪の結晶
             ..._buildSnowflakes(),
 
             SafeArea(
               child: Column(
                 children: [
-                  // 💡 上部のヘッダー（切り替えボタンもここに含まれます）
                   _buildHeader(context),
 
-                  // メインのリスト部分
                   Expanded(
                     child: _isLoading 
                       ? const Center(child: CircularProgressIndicator(color: Colors.white))
@@ -126,7 +114,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
               ),
             ),
 
-            // 右下に表示されるキャラクターの画像
             Positioned(
               bottom: -270, 
               right: -240,  
@@ -154,9 +141,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     );
   }
 
-  // --- 以下は画面を構成する「部品（メソッド）」の集まり ---
-
-  // 上部のヘッダーを作る部品
   Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -166,7 +150,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
             onPressed: () => Navigator.pop(context), 
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           ),
-          // 💡 Expandedで囲むことで、画面が小さくてもボタンと文字が被らないようにする
           Expanded(
             child: Text(
               'ブロック選択',
@@ -175,18 +158,15 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
               ),
             ),
           ),
-          // 💡 追加した切り替えボタンを右端に配置
           _buildModeToggleButton(),
         ],
       ),
     );
   }
 
-  // 💡 追加：出題形式を切り替えるトグルボタンの部品
   Widget _buildModeToggleButton() {
     return GestureDetector(
       onTap: () {
-        // タップされたら、trueとfalseをひっくり返す
         setState(() {
           _isVietToJpn = !_isVietToJpn;
         });
@@ -194,30 +174,41 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.2), // 半透明の背景
-          borderRadius: BorderRadius.circular(20), // 角丸
-          border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.5), // 白い枠線
+          color: Colors.white.withOpacity(0.2), 
+          borderRadius: BorderRadius.circular(20), 
+          border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.5), 
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              // 現在の状態に合わせて表示するテキストを変更
               _isVietToJpn ? '🇻🇳 ➔ 🇯🇵' : '🇯🇵 ➔ 🇻🇳',
               style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(width: 6),
-            const Icon(Icons.autorenew, color: Colors.white, size: 20), // くるくる回る矢印アイコン
+            const Icon(Icons.autorenew, color: Colors.white, size: 20), 
           ],
         ),
       ),
     );
   }
 
-  // 1つのブロックカードを作る部品
   Widget _buildBlockCard(int index) {
     final int blockNum = index + 1; 
     final int? currentScore = _scores[blockNum]; 
+    
+    // 💡 ブロックの最初の問題のインデックスを計算
+    final int firstQuestionIndex = index * 6;
+    
+    // 💡 タイトルに表示する文字を決定
+    String blockTitle = 'Block $blockNum';
+    if (firstQuestionIndex < _allQuizzes.length) {
+      final quiz = _allQuizzes[firstQuestionIndex];
+      // 現在のモードに合わせて、ベトナム語か日本語（正解の選択肢の意味）を取得
+      blockTitle = _isVietToJpn 
+          ? quiz.question.text 
+          : quiz.options[quiz.correctIndex].meaning;
+    }
 
     return Card(
       color: Colors.white.withOpacity(0.12), 
@@ -238,11 +229,13 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
           ),
         ),
         title: Text(
-          'Block $blockNum',
+          blockTitle, // 💡 ここを計算した単語に変更
+          maxLines: 1, // 💡 単語が長すぎた場合に1行に収める
+          overflow: TextOverflow.ellipsis, // 💡 はみ出た部分は「...」で省略
           style: GoogleFonts.mPlus1p(
             textStyle: const TextStyle(
               color: Colors.white,
-              fontSize: 28, 
+              fontSize: 24, // 💡 文字が長いことを考慮して少しだけ小さく調整 (28 -> 24)
               fontWeight: FontWeight.w900,
             ),
           ),
@@ -253,19 +246,21 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
             currentScore != null ? '前回スコア: $currentScore / 6' : '未挑戦 🎁',
             style: TextStyle(
               color: currentScore != null ? Colors.amberAccent : Colors.white, 
-              fontSize: 22, 
+              fontSize: 20, 
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
         trailing: const Icon(Icons.play_circle_fill, color: Colors.white, size: 50),
         onTap: () async {
-          // 💡 本来ならここで _isVietToJpn の状態を QuizScreen に渡す必要があります！
-          // 例: QuizScreen(blockNumber: blockNum, isVietToJpn: _isVietToJpn)
           await Navigator.push(
-            
             context, 
-            MaterialPageRoute(builder: (context) => QuizScreen(blockNumber: blockNum, isVietToJpn: _isVietToJpn))
+            MaterialPageRoute(
+              builder: (context) => QuizScreen(
+                blockNumber: blockNum, 
+                isVietToJpn: _isVietToJpn // 現在のモードをクイズ画面に渡す
+              )
+            )
           );
           _initializeData(); 
         },
@@ -273,7 +268,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     );
   }
 
-  // 背景に散りばめる雪の結晶をリストにして返す部品
   List<Widget> _buildSnowflakes() {
     return [
       _p(top: 80, left: 40, size: 45),
@@ -283,7 +277,6 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     ];
   }
 
-  // 雪の結晶アイコン1つを配置するための補助部品
   Widget _p({double? top, double? left, double? right, double? bottom, required double size, double opacity = 0.4}) {
     return Positioned(
       top: top, left: left, right: right, bottom: bottom,
