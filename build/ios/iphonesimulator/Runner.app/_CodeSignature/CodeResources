@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		l8pEfwHYXXhhJsf2fbycnwETkWU=
+		VLfD21+r6JbGkQGl7NcXwEbTtr4=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		qLCwmHbxjlJ2f3ZG5SLfWVZ8+/4=
+		PWdVNCKFOqkVC8vCp3wN7rB30tA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		S+8/D/aExDLHEGOPI3N51hOD2Zo=
+		Vo03dyGsKJwimXoQzfyque/G98w=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		BIG8d6UYwBZFbJfv9HNXozcb3BQ=
+		oaXWb1D6Nc4RjMT4zBytFEFOnZs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -80,45 +80,45 @@
 		<data>
 		piuU99Lmhoo+aYo0bS+lF1zSwow=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/clauschan_angry.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_angry.png</key>
 		<data>
-		4eV2/QnQHwuxL7HXSM6sBYbqDCw=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/clauschan_angry_little.png</key>
-		<data>
-		zWNIOjk/rM+3RQQ3poGAF2DvbyE=
+		oC/iAURYoQBoDkb1InCANFJFfGU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_araara.png</key>
 		<data>
-		X9W+hsYnqcseu+EhpTE3STcqm5w=
+		YYli+qavdncxKmF3vpNzVNtlx48=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_happy.png</key>
+		<data>
+		poAy6ra3OXig16yZQXrstglYmxY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_normal.png</key>
 		<data>
-		miKYKRxWHiVoJFkKkVH8D5TEMIE=
+		CMv0u8HoJfXTh2IbmkmsvYNZK1Q=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_sit.png</key>
 		<data>
-		uP8i36Av88ZTXU2kctH73u0cS+w=
+		HYPGr6jCZSAL7BBAsUnDEKbS9jQ=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_claussan_sleep.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/dr_turkey.png</key>
 		<data>
-		hqwqrG0ott1viOJvWJvZ7H9I9HA=
+		2z0xSzKU+6grfgHJJLPsHgJsIm0=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_happy.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_center.png</key>
 		<data>
-		xx/hWw5IzJ5ERDjF8Av/Iccmteo=
+		VIaJoPvZ7UkIjST8Xl06mvHRC10=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_left.png</key>
+		<data>
+		a2PMcayU3sISooUyvdLKoql0f7E=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_right.png</key>
+		<data>
+		BU3GymkcxFfuIA8g9EvMbHz7nRU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_happy_2.png</key>
 		<data>
-		7woxm8AEiH9zSead/AnOWTeHkN4=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_sad.png</key>
-		<data>
-		6bcT7LiCI7d1+jDMV8jr5oik35c=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun.png</key>
-		<data>
-		pX1FPMV2hDE882Di95eJ19fI8Ps=
+		Q0QgqFp4i7tUQMVLOWqN2gHhH/8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_angry.png</key>
 		<data>
@@ -127,14 +127,6 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_considering.png</key>
 		<data>
 		p2DmrFDMTW7OooAnoU4zZ5F35c8=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_despair.png</key>
-		<data>
-		PWFo1BrjJsaXyv1NRrOCp6EE0iM=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_glad.png</key>
-		<data>
-		3/POI5PjWM22uyRTgfZUUG+5Cfw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_happy.png</key>
 		<data>
@@ -148,29 +140,41 @@
 		<data>
 		KzP7MM7wJPDlvRTz6icTQZZ6KQI=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_angry.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_failure_images.png</key>
 		<data>
-		ip6enH7weWN6eP2m5ENCVYRsw20=
+		2T6y6j62sF6p/fMfRZxm1O871bs=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_angry_little.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_angry.png</key>
 		<data>
-		OcMPhOTv4eeb7Shu8aOZ93+Mdr0=
+		e2jDQmEXeRqf3xI2nXs87HxyoME=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_happy.png</key>
+		<data>
+		6MHeBCYgg2X8sTp9IlSywQtXRsI=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_tonakaikun_angry.png</key>
+		<data>
+		YJxoSvkffx6ZB4ZuxNQvmnPg0F0=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_tonakaikun_happy.png</key>
+		<data>
+		OLyk8vUU3ym3HzJzbzO2rr1K8xw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_success_images.png</key>
+		<data>
+		GTKpgt6lRAB5yqRguE0yMNBJNQg=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_tonakaikun_angry.png</key>
+		<data>
+		zIKq2FhKRV51o3jEJO8PYRve+SM=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_tonakaikun_happy.png</key>
+		<data>
+		MJo+edurf45AvKkq+dI5CK38IM0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_happy.png</key>
 		<data>
-		+PhWFQcQwe4DqJgRzy2rjiMv6ms=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_happy_2.png</key>
-		<data>
-		OTFLsFJHIbryfnRylcbhizbWh5o=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_sad.png</key>
-		<data>
-		OXyK3MWkGshFt0UXpAuoXC9ouyY=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_sleep.png</key>
-		<data>
-		n5uYGfKZAVy8hNcLYCFtj21hTwg=
+		9HBno2D8N18DW38Fv29bf6OXegE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -182,7 +186,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		dDY8u/bZSCNZ1iHPt4/KGPXLFwA=
+		7ecSYRACHO8xDWhgBh/nAL4aZsk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -417,7 +421,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			T+aZ+0r57R+gKv6xAue3plFklW6TqcFhidbwuA9G2GI=
+			GoWAVvZLm3tiUQ7d5iT1K9kfduQRD92KhlX6efkAJno=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -431,21 +435,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dQicqRuHH8rEctMmRlHPH7z0+U9WwppXIQS9QHlY9ZA=
+			4Hw/79wnnlSJHP+4Rg/ylW7tPYCkeJVhqFWHEnoES+U=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cJtLRwwfudaBjYP+zgNV57UuBQl2fZeQDfD2G4p7MjQ=
+			P8d/XdJsuqHw09m/qcN5dcuNWUwf0LfUWNepsD3Rfbg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BWMtE3erOdiIC8L1KitzpWG0OGRiD6SG5OOkgcz/hLo=
+			xSB1Fda1PtGKcNC+ZTnOSNCCnmyifPSqbi8irHUbXts=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -476,74 +480,74 @@
 			7zSjLc39vxJ3oHb6ZSPL9GwNJzL3vCXCi5STiGrNgD4=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/clauschan_angry.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_angry.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ht3ClUBL8kOyHnRdUOb+Vm5qrgsRndD8lF3ISyq4yl8=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/clauschan_angry_little.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			hf3nZUsMq2TjVVkJSMJqY+6FIW5c4ogtl9wCBoKDZN4=
+			KcIgGX/nRQaGALBKezXDNLKn5+/RG3dngst/SxemOaM=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_araara.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vlMEnC4m49UEKiQvI+QzYrIqrspmJhQQzz295zQNnzk=
+			o7/0uB5UFA/DpUTfCxB+WhUq5MW95/B1fxblPDTV0vo=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_happy.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AhLEguF1I/B9RLCYsp1oPVL2+8lKTI8N51vJsv693q8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_normal.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ewrT8nQ6wI0nSJOK+fnMHD7btnPqDapNtbXbNbMpFpc=
+			wYMZN7h4DsWIbLWxOqcvlY9yuVFJtXrTTXBbBRZMIUw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/claussan_sit.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SbJD2IM5mVO6jXrkg4Obrewr6f1x2DHwzHZgIv0ZEwE=
+			fPNsz68kryxS/q1TIibng1lRsDxaB6ehQn40nNxEmh0=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_claussan_sleep.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/dr_turkey.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J7ZlOI+wPfFpfi2HbeZonITMCac21Xwy0p04VspG6eY=
+			+DDOY85NqJzW3Nqu077S6yR76kYcshU3391dMOLgXyU=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_happy.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_center.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2p0lahkXGVdMhAIV86tGZXL46s4TE+bQ48nb1JbyhtY=
+			72biZOphOzqPpGYG9maE01uEJQ6aMM+b5Hjzvj09zLE=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_left.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			btkgaHtswWm/TO2nvg3SQlymE/lw8ARB5eykXrlJyeU=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/home_screen_right.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gr9d2r3RQqrwWrz0EabG8T0QaB7ZWxDap35g3HmwbR8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_happy_2.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			raV1DBQOOkwC/L1qi+aLOJ/BKjUE5ANXBONOzNJ0XNg=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_sad.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tL1pfBLd4P9S5VLXnV0u3pAO2veeWdzyubktSIs7xEc=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			AHC/zGu+9PUOb7PYoBEJeLfDCzuFE4yBGx2vCwYFOok=
+			7dYvfp05Ira80v87ORWbZoRDJD/qMaegEncwYZlkZ4Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_angry.png</key>
@@ -558,20 +562,6 @@
 			<key>hash2</key>
 			<data>
 			Q/f0/o6iTke3BZQN9e2gq5BaRB2bjrgPsi6uw9XD4bE=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_despair.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OrfhiPqmCUlZe4uKKNEs9xj6Bq/HM/jYTYHdGapzo80=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_glad.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			pNR5EDKUQzr+205pX/DRWSfKrlGR9Oe6X6BjH62UM6U=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/lauschan_tonakaikun_happy.png</key>
@@ -595,46 +585,67 @@
 			vs9qn5/wJa/+I8jgI8B937mfAp/zSHsibZiNunYX/uU=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_angry.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_failure_images.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wbuCeWLluGA9m9UEIH10bhK6zR4i39mXW7YoW1Vt6aE=
+			ae7iWzUW+KBTkJd4ogD8UFaNM7pDtS5bJC/FWdgtsXA=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_angry_little.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_angry.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iwwvp7YhtG7LMyFJuah1OjtBoZ1tDO/UnDnEnff2w74=
+			l793d89awPWAeprj5w9VkPh/pq4zEz0flhOCetxl5pQ=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_happy.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Zq/POIYO8medUPYdEHFIJ+9VNWGccQlf6XtBe5kNLZo=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_tonakaikun_angry.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8jWx4vTHBOsj1H9Ze5c4d9Pi7B1P84BnRkjZ7+M9254=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_lauschan_tonakaikun_happy.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Gm1Hzy8Oacgqk4NohxFObFC26rdSk+hbPScSnTlYEuA=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_success_images.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			N137RYa8XwcO0LvYUsr/2isKTXQmR+vobigbppL4RIc=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_tonakaikun_angry.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QDXW2h8XJ3fpTh+H8nVjSbKYYUS22Chs59a2jQv158I=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/result_tonakaikun_happy.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XhyaU52XV2ht9HWxrVpE//1aA6My5wu+p3vVW4Ez01Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_happy.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5cz3Kyw8iQvf1MdC7HfKVAShJzC7r1yQAMP4bdZ/eDM=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_happy_2.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fSabEzttVeQdIBJyTuIK22c+TAdQB/hF7iZ8JlPvlbw=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_sad.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Z+ODWagilOswICEXZwdDDG4rsz0P8iCndakTp7xBFm0=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/tonakaikun_sleep.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tKGj/1sW9tj6dC+Qr2IKMKaKzv2VDSpJgmjvOZ+WvVs=
+			A2JvxAvG3rEm2v82DIIDuEdshXRpUBqn9TpbYdUjqlI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -655,7 +666,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eyvF3PH9xHD2LW9B4luKxx2P6FAfG7v0n3WrxHlGqH0=
+			yVcuNl7sKDADAaThSNF1gm8w7i8fJOIA2runA6+8do4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

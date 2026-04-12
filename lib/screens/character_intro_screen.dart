@@ -71,7 +71,7 @@ class CharacterIntroScreen extends StatelessWidget {
                         _buildCharacterCard(
                           name: 'トナカイくん',
                           role: '食いしん坊な相棒',
-                          description: 'ロースちゃんといつも一緒にいる相棒！いつも元気いっぱいでロースちゃんをサポートするよ！怒ると肉食になるよ！クリスマスの日も肉食になるよ！',
+                          description: 'ロースちゃんといつも一緒にいる相棒！いつも元気いっぱいでロースちゃんをサポートするけど結構なおっちょこちょいのスカポンタン！怒ると肉食になるよ！クリスマスの日も肉食になるよ！',
                           imagePath: 'assets/images/tonakaikun_happy.png',
                           isImage: true,
                           imageScale: 2, // 💡 ここで大きさを調整！
@@ -82,7 +82,7 @@ class CharacterIntroScreen extends StatelessWidget {
                         _buildCharacterCard(
                           name: 'ターキー博士',
                           role: 'ロースちゃんの恩師',
-                          description: '享年：去年 命日：12/24 \nロースちゃんの恩師。なんでも知っている大博士だよ！彼の死についてロースちゃんはまだ何も知らないよ！でも彼の言葉や教えは今もロースちゃんの心に生き続けているよ！',
+                          description: '享年：去年 命日：12/24 \nロースちゃんの恩師。なんでも知っている大博士だよ！彼の死についてロースちゃんはまだ何も知らないよ！でも彼の残した言葉や教えは今もロースちゃんの心に生き続けているよ！',
                           imagePath: 'assets/images/dr_turkey.png', 
                           isImage: true,
                           imageScale: 1.3, // 💡 ターキー博士は少し大きめにするなど、個別に設定可能です
@@ -92,8 +92,8 @@ class CharacterIntroScreen extends StatelessWidget {
                         // クロスさん（お母さん）のカード
                         _buildCharacterCard(
                           name: 'クロスさん',
-                          role: '優しき見守り役',
-                          description: 'ロースちゃんを優しく見守るお母さんサンタ（元一流の３択ロース）。ロースちゃんの面倒を見るけどたまにおっちょこちょい！お料理が大好きでクリスマスはいつも奮発してロースちゃんにご馳走を作ってくれるよ！',
+                          role: 'ロースちゃんのお母さん',
+                          description: 'ロースちゃんを優しく見守るお母さんサンタ（元一流の３択ロース）。ロースちゃんのことを陰ながら見守ってるよ！お料理が大好きでクリスマスはいつも奮発してロースちゃんにご馳走を作ってくれるよ！',
                           imagePath: 'assets/images/claussan_sit.png',
                           isImage: true,
                           imageScale: 2, // 💡 ここで大きさを調整！
