@@ -20,7 +20,11 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateMixin {
   final FlutterTts _tts = FlutterTts(); 
-  late Future<List<Quiz>> _quizFuture; 
+  
+  // 💡 FutureBuilderをやめ、直接状態（State）としてデータを保持する
+  bool _isLoading = true;
+  List<Quiz> _quizList = [];
+  List<List<int>> _shuffledIndices = [];
   
   int _currentIndex = 0; 
   bool _isAnswered = false; 
@@ -39,7 +43,6 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     super.initState();
     _tts.setLanguage("vi-VN");
     _tts.setSpeechRate(0.5);
-    _quizFuture = _loadQuizData();
     _isFlipped = false; 
     _pickConsideringImage();
 
@@ -51,6 +54,9 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     _floatAnimation = Tween<double>(begin: 0.0, end: 15.0).animate(
       CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
     );
+
+    // 💡 画面起動時に確実にデータを読み込み＆シャッフルする
+    _initQuizData();
   }
 
   @override
@@ -58,6 +64,33 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     _floatController.dispose();
     _tts.stop(); 
     super.dispose();
+  }
+
+  // 💡 データを読み込み、その場で完全にシャッフルしてStateに保存するメソッド
+  Future<void> _initQuizData() async {
+    final String response = await rootBundle.loadString('assets/data/quiz_data.json');
+    final List<dynamic> data = json.decode(response);
+    List<Quiz> quizzes = data.map((json) => Quiz.fromJson(json)).toList();
+    
+    int start = (widget.blockNumber - 1) * 6;
+    int end = (start + 6 > quizzes.length) ? quizzes.length : start + 6;
+    _quizList = quizzes.sublist(start, end);
+
+    // 💡 現在時刻を「乱数の種」にすることで、絶対に毎回違うパターンにする
+    final random = math.Random(DateTime.now().millisecondsSinceEpoch);
+    
+    _shuffledIndices = _quizList.map((quiz) {
+      List<int> indices = List.generate(quiz.options.length, (i) => i);
+      indices.shuffle(random); 
+      return indices;
+    }).toList();
+
+    // 読み込みとシャッフルが完了したら、画面を描画し直す
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   void _pickConsideringImage() {
@@ -99,15 +132,6 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     await prefs.setInt('score_${widget.blockNumber}', _score);
   }
 
-  Future<List<Quiz>> _loadQuizData() async {
-    final String response = await rootBundle.loadString('assets/data/quiz_data.json');
-    final List<dynamic> data = json.decode(response);
-    List<Quiz> quizzes = data.map((json) => Quiz.fromJson(json)).toList();
-    int start = (widget.blockNumber - 1) * 6;
-    int end = (start + 6 > quizzes.length) ? quizzes.length : start + 6;
-    return quizzes.sublist(start, end);
-  }
-
   Widget _buildCharacter() {
     return Positioned(
       bottom: -70,
@@ -139,140 +163,137 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Quiz>>(
-      future: _quizFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            backgroundColor: Color(0xFF8B0000),
-            body: Center(child: CircularProgressIndicator(color: Colors.white)),
-          );
-        }
-        if (snapshot.hasError || !snapshot.hasData) {
-          return const Scaffold(body: Center(child: Text('データの読み込みに失敗しました')));
-        }
+    // 💡 読み込み中（シャッフル中）はローディングアイコンを出す
+    if (_isLoading) {
+      return const Scaffold(
+        backgroundColor: Color(0xFF8B0000),
+        body: Center(child: CircularProgressIndicator(color: Colors.white)),
+      );
+    }
 
-        final quizList = snapshot.data!;
-        final quiz = quizList[_currentIndex];
-        final bool isCorrect = _isAnswered && _selectedIndex == quiz.correctIndex;
-        final String displayQuestionText = widget.isVietToJpn 
-            ? quiz.question.text 
-            : quiz.options[quiz.correctIndex].meaning;
-        final String questionTtsLang = widget.isVietToJpn ? "vi-VN" : "ja-JP";
+    final quiz = _quizList[_currentIndex];
+    final currentShuffledIndices = _shuffledIndices[_currentIndex];
 
-        return Scaffold(
-          body: Container(
-            decoration: const BoxDecoration(
-              gradient: RadialGradient(
-                center: Alignment.center,
-                radius: 1.2,
-                colors: [Color(0xFFE53935), Color(0xFF8B0000)],
+    final bool isCorrect = _isAnswered && _selectedIndex == quiz.correctIndex;
+    final String displayQuestionText = widget.isVietToJpn 
+        ? quiz.question.text 
+        : quiz.options[quiz.correctIndex].meaning;
+    final String questionTtsLang = widget.isVietToJpn ? "vi-VN" : "ja-JP";
+
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            center: Alignment.center,
+            radius: 1.2,
+            colors: [Color(0xFFE53935), Color(0xFF8B0000)],
+          ),
+        ),
+        child: Stack(
+          children: [
+            ..._buildSnowflakes(),
+            if (!_isAnswered) _buildCharacter(),
+            SafeArea(
+              child: Column(
+                children: [
+                  _buildHeader(),
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          displayQuestionText, 
+                          style: GoogleFonts.notoSansJp(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 64,
+                              fontWeight: FontWeight.w900,
+                              shadows: [Shadow(color: Colors.black45, blurRadius: 15)],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        IconButton(
+                          onPressed: () {
+                            _tts.setLanguage(questionTtsLang); 
+                            _tts.speak(displayQuestionText);
+                          },
+                          icon: const Icon(Icons.volume_up, color: Colors.white, size: 50),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: Column(
+                      children: List.generate(currentShuffledIndices.length, (i) {
+                        
+                        final originalIndex = currentShuffledIndices[i];
+                        
+                        final isCorrectBtn = originalIndex == quiz.correctIndex;
+                        final isSelectedBtn = originalIndex == _selectedIndex;
+                        final String displayOptionText = widget.isVietToJpn
+                            ? quiz.options[originalIndex].meaning 
+                            : quiz.options[originalIndex].text;
+
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 75,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: _isAnswered
+                                    ? (isCorrectBtn ? Colors.green : (isSelectedBtn ? Colors.red : Colors.white12))
+                                    : Colors.white.withOpacity(0.2),
+                                    foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                elevation: 0,
+                              ),
+                              onPressed: () {
+                                if (_isAnswered) return;
+                                setState(() {
+                                  _selectedIndex = originalIndex;
+                                  _isAnswered = true;
+                                  if (originalIndex == quiz.correctIndex) {
+                                    _score++;
+                                    _setReactionImage(true);
+                                  } else {
+                                    _setReactionImage(false);
+                                  }
+                                });
+                                _tts.setLanguage("vi-VN"); 
+                                _tts.speak(quiz.options[originalIndex].text);
+                              },
+                              child: Text(
+                                displayOptionText,
+                                style: GoogleFonts.mPlus1p(
+                                  textStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ],
               ),
             ),
-            child: Stack(
-              children: [
-                ..._buildSnowflakes(),
-                if (!_isAnswered) _buildCharacter(),
-                SafeArea(
-                  child: Column(
-                    children: [
-                      _buildHeader(quizList),
-                      Expanded(
-                        flex: 4,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              displayQuestionText, 
-                              style: GoogleFonts.notoSansJp(
-                                textStyle: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w900,
-                                  shadows: [Shadow(color: Colors.black45, blurRadius: 15)],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            IconButton(
-                              onPressed: () {
-                                _tts.setLanguage(questionTtsLang); 
-                                _tts.speak(displayQuestionText);
-                              },
-                              icon: const Icon(Icons.volume_up, color: Colors.white, size: 50),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        flex: 5,
-                        child: Column(
-                          children: List.generate(quiz.options.length, (index) {
-                            final isCorrectBtn = index == quiz.correctIndex;
-                            final isSelectedBtn = index == _selectedIndex;
-                            final String displayOptionText = widget.isVietToJpn
-                                ? quiz.options[index].meaning 
-                                : quiz.options[index].text;
-
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-                              child: SizedBox(
-                                width: double.infinity,
-                                height: 75,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: _isAnswered
-                                        ? (isCorrectBtn ? Colors.green : (isSelectedBtn ? Colors.red : Colors.white12))
-                                        : Colors.white.withOpacity(0.2),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                    elevation: 0,
-                                  ),
-                                  onPressed: () {
-                                    if (_isAnswered) return;
-                                    setState(() {
-                                      _selectedIndex = index;
-                                      _isAnswered = true;
-                                      if (index == quiz.correctIndex) {
-                                        _score++;
-                                        _setReactionImage(true);
-                                      } else {
-                                        _setReactionImage(false);
-                                      }
-                                    });
-                                    _tts.setLanguage("vi-VN"); 
-                                    _tts.speak(quiz.options[index].text);
-                                  },
-                                  child: Text(
-                                    displayOptionText,
-                                    style: GoogleFonts.mPlus1p(
-                                      textStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                if (_isAnswered) ...[
-                  Positioned.fill(child: Container(color: Colors.black54)), 
-                  if (isCorrect) ..._buildStars(),
-                  _buildCharacter(),
-                  SafeArea(child: _buildFeedbackModal(quiz, isCorrect, quizList)),
-                ],
-              ],
-            ),
-          ),
-        );
-      },
+            if (_isAnswered) ...[
+              Positioned.fill(child: Container(color: Colors.black54)), 
+              if (isCorrect) ..._buildStars(),
+              _buildCharacter(),
+              SafeArea(child: _buildFeedbackModal(quiz, isCorrect, currentShuffledIndices)),
+            ],
+          ],
+        ),
+      ),
     );
   }
 
-  Widget _buildHeader(List<Quiz> quizList) {
+  Widget _buildHeader() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -283,7 +304,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
             icon: const Icon(Icons.close, color: Colors.white, size: 30),
           ),
           Text(
-            'Block ${widget.blockNumber}  [${_currentIndex + 1}/${quizList.length}]',
+            'Block ${widget.blockNumber}  [${_currentIndex + 1}/${_quizList.length}]',
             style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(width: 48),
@@ -292,7 +313,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     );
   }
 
-  Widget _buildFeedbackModal(Quiz quiz, bool isCorrect, List<Quiz> quizList) {
+  Widget _buildFeedbackModal(Quiz quiz, bool isCorrect, List<int> shuffledIndices) {
     return Column(
       children: [
         const SizedBox(height: 40),
@@ -319,9 +340,11 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                 const Text('【 解説 】', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: quiz.options.length,
-                    itemBuilder: (context, index) {
+                    itemCount: shuffledIndices.length,
+                    itemBuilder: (context, i) {
+                      final index = shuffledIndices[i];
                       final word = quiz.options[index];
+                      
                       return Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         padding: const EdgeInsets.all(12),
@@ -358,7 +381,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () async {
-                      if (_currentIndex < quizList.length - 1) {
+                      if (_currentIndex < _quizList.length - 1) {
                         setState(() {
                           _currentIndex++;
                           _isAnswered = false;
@@ -367,20 +390,17 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                           _pickConsideringImage();
                         });
                       } else {
-                        // 1. 準備
                         _tts.stop();
-                        final navigator = Navigator.of(context); // 💡 事前に確保
+                        final navigator = Navigator.of(context); 
                         final currentScore = _score;
-                        final currentTotal = quizList.length;
+                        final currentTotal = _quizList.length;
 
                         await _saveScore();
                         
-                        // 2. 💡 Async Gap 対策とエンジンの安定待ち
                         if (!context.mounted) return;
                         await Future.delayed(const Duration(milliseconds: 200));
                         if (!context.mounted) return;
 
-                        // 3. 💡 Navigatorを呼び出す（あえて標準のアニメーションを少し残す）
                         navigator.pushReplacement(
                           MaterialPageRoute(
                             builder: (context) => ResultScreen(
@@ -397,7 +417,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                     ),
                     child: Text(
-                      _currentIndex < quizList.length - 1 ? '次の問題へ' : '結果を見る',
+                      _currentIndex < _quizList.length - 1 ? '次の問題へ' : '結果を見る',
                       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
