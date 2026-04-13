@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		Vo03dyGsKJwimXoQzfyque/G98w=
+		JYmKDk/0cZE85mjgLn9ozo9CBXI=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		oaXWb1D6Nc4RjMT4zBytFEFOnZs=
+		D+Rj8etZxeNwwDb2tmREOz2ffEY=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		bgjz+MWjs0ncKH71oBC+XUeuEaA=
+		U101+0Z7ygNhs7sxviQH5jn301o=
 		</data>
 		<key>flutter_assets/assets/audio/.gitkeep</key>
 		<data>
@@ -35,6 +35,10 @@
 		<key>flutter_assets/assets/images/.DS_Store</key>
 		<data>
 		0OT0q+ObwQCePXGkceylBjf2D4A=
+		</data>
+		<key>flutter_assets/assets/images/app_icon.png</key>
+		<data>
+		eecnzBQfkRZ2Wf5Eg8GUauG/OZ4=
 		</data>
 		<key>flutter_assets/assets/images/claussan_angry.png</key>
 		<data>
@@ -142,7 +146,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		psQmzkXi9ur7s8Skov/bQ/CfBso=
+		Y1sHVfYl3QskQzrAT7hbYSa9aLg=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -163,14 +167,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			P8d/XdJsuqHw09m/qcN5dcuNWUwf0LfUWNepsD3Rfbg=
+			YHYxscKDNniYEps3xb47P78oQDvSkBglRTEyTJNMmY0=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xSB1Fda1PtGKcNC+ZTnOSNCCnmyifPSqbi8irHUbXts=
+			TuMtIGI+pbSNInNlGnn1wn4Du6+fP845lnTCVJdNA5k=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -184,7 +188,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bbH/NZbLwlMZqaKr3PoA4NADC0mty08geXcOtBCp5ug=
+			9KkimutDJNyTF2rpIRUQGVU3+MYdxLPilmEMaLi8D3Q=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/audio/.gitkeep</key>
@@ -199,6 +203,13 @@
 			<key>hash2</key>
 			<data>
 			7zSjLc39vxJ3oHb6ZSPL9GwNJzL3vCXCi5STiGrNgD4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/app_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pQklI8qbZRWZC49t7ABqAn3snXZbfZrv7WbgPMMarNw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/claussan_angry.png</key>
@@ -387,7 +398,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DeECVe0hhVDUs8FoFOdMeSxbzD1ALC9HX/ZjJOxtieU=
+			bJAyReub7trktIgq5xcOqJY+mHOGbLjllKR+f5g+4Nw=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

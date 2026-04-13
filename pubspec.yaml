@@ -12,6 +12,7 @@ dependencies:
   flutter_tts: ^4.0.2  
   shared_preferences: ^2.2.2  
   google_fonts: ^6.2.1
+  flutter_launcher_icons: "^0.13.1"
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +26,11 @@ flutter:
     - assets/audio/
     - assets/data/
     - assets/images/  # <-- この一行を追加（フォルダごと指定できます）
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  # macOSでも出すなら
+  macos:
+    generate: true
