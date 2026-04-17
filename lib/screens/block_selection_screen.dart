@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; 
 import 'package:google_fonts/google_fonts.dart'; 
 import 'package:shared_preferences/shared_preferences.dart'; 
-import '../models/quiz_model.dart'; // 💡 Quizモデルをインポート（データを取り出すため）
+
+import '../models/word_model.dart'; 
+import '../models/language_config.dart'; // 💡 ルールブックをインポート
+import '../widgets/snowy_background.dart'; 
 import 'quiz_screen.dart'; 
 
 class BlockSelectionScreen extends StatefulWidget {
@@ -22,12 +25,17 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
   bool _isLoading = true; 
   bool _isVietToJpn = true;
 
-  // 💡 追加：全クイズデータを保持するリスト
-  List<Quiz> _allQuizzes = [];
+  List<Word> _allWords = [];
+  
+  // 💡 現在選択されている言語を入れる箱
+  late LanguageConfig _currentLanguage;
 
   @override
   void initState() {
     super.initState();
+    // とりあえずデフォルトをベトナム語にセットしておく
+    _currentLanguage = LanguageConfig.supportedLanguages.first; 
+    
     _initializeData(); 
     
     _thinkingController = AnimationController(
@@ -43,6 +51,7 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
   }
 
   Future<void> _initializeData() async {
+    await _loadCurrentLanguage(); // 💡 まずはスマホに保存されている言語を読み込む
     await _loadTotalBlocks(); 
     await _loadScores();      
     
@@ -53,15 +62,25 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     }
   }
 
-  // 💡 修正：JSONからクイズデータをすべて読み込んで保持する
+  // 💡 SharedPreferencesから選択中の言語を取得する処理
+  Future<void> _loadCurrentLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLangId = prefs.getString('selected_language') ?? 'vi'; // 保存されてなければ 'vi'
+    
+    _currentLanguage = LanguageConfig.supportedLanguages.firstWhere(
+      (lang) => lang.id == savedLangId,
+      orElse: () => LanguageConfig.supportedLanguages.first,
+    );
+  }
+
   Future<void> _loadTotalBlocks() async {
     try {
-      final String response = await rootBundle.loadString('assets/data/quiz_data.json');
+      // 💡 選択中の言語のJSONファイル名を使って読み込む！
+      final String response = await rootBundle.loadString('assets/data/${_currentLanguage.jsonFileName}');
       final List<dynamic> data = json.decode(response);
       
-      // JSONデータをQuizモデルのリストに変換
-      _allQuizzes = data.map((json) => Quiz.fromJson(json)).toList();
-      _totalBlocks = (_allQuizzes.length / 6).ceil();
+      _allWords = data.map((json) => Word.fromJson(json)).toList();
+      _totalBlocks = (_allWords.length / 6).ceil();
     } catch (e) {
       debugPrint("データの読み込みエラー: $e");
       _totalBlocks = 0; 
@@ -73,7 +92,8 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     Map<int, int> tempScores = {};
     
     for (int i = 1; i <= _totalBlocks; i++) {
-      int? score = prefs.getInt('score_$i');
+      // 💡 言語ごとにスコアを分ける（例: score_vi_1, score_ru_1）
+      int? score = prefs.getInt('score_${_currentLanguage.id}_$i');
       if (score != null) {
         tempScores[i] = score; 
       }
@@ -84,18 +104,10 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 1.2,
-            colors: [Color(0xFFE53935), Color(0xFF8B0000)], 
-          ),
-        ),
+      backgroundColor: const Color(0xFF8B0000), 
+      body: SnowyBackground(
         child: Stack(
           children: [
-            ..._buildSnowflakes(),
-
             SafeArea(
               child: Column(
                 children: [
@@ -181,8 +193,9 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // 💡 現在の言語の国旗を動的に表示する！
             Text(
-              _isVietToJpn ? '🇻🇳 ➔ 🇯🇵' : '🇯🇵 ➔ 🇻🇳',
+              _isVietToJpn ? '${_currentLanguage.flag} ➔ 🇯🇵' : '🇯🇵 ➔ ${_currentLanguage.flag}',
               style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(width: 6),
@@ -197,17 +210,12 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
     final int blockNum = index + 1; 
     final int? currentScore = _scores[blockNum]; 
     
-    // 💡 ブロックの最初の問題のインデックスを計算
     final int firstQuestionIndex = index * 6;
     
-    // 💡 タイトルに表示する文字を決定
     String blockTitle = 'Block $blockNum';
-    if (firstQuestionIndex < _allQuizzes.length) {
-      final quiz = _allQuizzes[firstQuestionIndex];
-      // 現在のモードに合わせて、ベトナム語か日本語（正解の選択肢の意味）を取得
-      blockTitle = _isVietToJpn 
-          ? quiz.question.text 
-          : quiz.options[quiz.correctIndex].meaning;
+    if (firstQuestionIndex < _allWords.length) {
+      final word = _allWords[firstQuestionIndex];
+      blockTitle = _isVietToJpn ? word.text : word.meaning;
     }
 
     return Card(
@@ -229,13 +237,13 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
           ),
         ),
         title: Text(
-          blockTitle, // 💡 ここを計算した単語に変更
-          maxLines: 1, // 💡 単語が長すぎた場合に1行に収める
-          overflow: TextOverflow.ellipsis, // 💡 はみ出た部分は「...」で省略
+          blockTitle, 
+          maxLines: 1, 
+          overflow: TextOverflow.ellipsis, 
           style: GoogleFonts.mPlus1p(
             textStyle: const TextStyle(
               color: Colors.white,
-              fontSize: 24, // 💡 文字が長いことを考慮して少しだけ小さく調整 (28 -> 24)
+              fontSize: 24, 
               fontWeight: FontWeight.w900,
             ),
           ),
@@ -256,31 +264,17 @@ class _BlockSelectionScreenState extends State<BlockSelectionScreen> with Single
           await Navigator.push(
             context, 
             MaterialPageRoute(
+              // 💡 QuizScreenには、どの言語が選ばれているかも一緒に渡してあげます
               builder: (context) => QuizScreen(
                 blockNumber: blockNum, 
-                isVietToJpn: _isVietToJpn // 現在のモードをクイズ画面に渡す
+                isVietToJpn: _isVietToJpn,
+                currentLanguage: _currentLanguage, // ※QuizScreen側も後で受け取れるように修正が必要です
               )
             )
           );
           _initializeData(); 
         },
       ),
-    );
-  }
-
-  List<Widget> _buildSnowflakes() {
-    return [
-      _p(top: 80, left: 40, size: 45),
-      _p(top: 180, right: 60, size: 35),
-      _p(top: 350, left: 20, size: 120, opacity: 0.1), 
-      _p(bottom: 150, right: 30, size: 80),
-    ];
-  }
-
-  Widget _p({double? top, double? left, double? right, double? bottom, required double size, double opacity = 0.4}) {
-    return Positioned(
-      top: top, left: left, right: right, bottom: bottom,
-      child: Icon(Icons.ac_unit, color: Colors.white.withOpacity(opacity), size: size),
     );
   }
 }

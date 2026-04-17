@@ -1,0 +1,1220 @@
+[
+  {
+    "text": "你好",
+    "meaning": "こんにちは",
+    "partOfSpeech": "挨拶",
+    "example": "你好，我是田中。",
+    "exampleMeaning": "こんにちは、私は田中です。"
+  },
+  {
+    "text": "谢谢",
+    "meaning": "ありがとう",
+    "partOfSpeech": "挨拶",
+    "example": "谢谢你的礼物。",
+    "exampleMeaning": "プレゼントをありがとう。"
+  },
+  {
+    "text": "再见",
+    "meaning": "さようなら",
+    "partOfSpeech": "挨拶",
+    "example": "晚安，再见。",
+    "exampleMeaning": "おやすみなさい、さようなら。"
+  },
+  {
+    "text": "明天见",
+    "meaning": "また会いましょう",
+    "partOfSpeech": "挨拶",
+    "example": "明天见。",
+    "exampleMeaning": "また明日会いましょう。"
+  },
+  {
+    "text": "不好意思",
+    "meaning": "すみません/ごめんなさい",
+    "partOfSpeech": "挨拶",
+    "example": "不好意思，请问一下...",
+    "exampleMeaning": "すみません、お尋ねしたいのですが…"
+  },
+  {
+    "text": "没关系",
+    "meaning": "問題ない/大丈夫",
+    "partOfSpeech": "挨拶",
+    "example": "那个没关系。",
+    "exampleMeaning": "それは大丈夫（問題ない）ですよ。"
+  },
+  {
+    "text": "家",
+    "meaning": "家",
+    "partOfSpeech": "名詞",
+    "example": "我的家在东京。",
+    "exampleMeaning": "私の家は東京にあります。"
+  },
+  {
+    "text": "钱",
+    "meaning": "お金",
+    "partOfSpeech": "名詞",
+    "example": "我没有钱。",
+    "exampleMeaning": "私はお金がありません。"
+  },
+  {
+    "text": "水",
+    "meaning": "水",
+    "partOfSpeech": "名詞",
+    "example": "请给我一杯水。",
+    "exampleMeaning": "水を一杯ください。"
+  },
+  {
+    "text": "吃",
+    "meaning": "食べる",
+    "partOfSpeech": "動詞",
+    "example": "我吃面条。",
+    "exampleMeaning": "私は麺を食べる。"
+  },
+  {
+    "text": "去",
+    "meaning": "行く",
+    "partOfSpeech": "動詞",
+    "example": "明天我去上班。",
+    "exampleMeaning": "明日、私は仕事に行きます。"
+  },
+  {
+    "text": "看",
+    "meaning": "見る",
+    "partOfSpeech": "動詞",
+    "example": "我正在看电影。",
+    "exampleMeaning": "私は映画を見ています。"
+  },
+  {
+    "text": "做",
+    "meaning": "する / 作る",
+    "partOfSpeech": "動詞",
+    "example": "你在做什么？",
+    "exampleMeaning": "あなたは何をしていますか？"
+  },
+  {
+    "text": "大",
+    "meaning": "大きい",
+    "partOfSpeech": "形容詞",
+    "example": "这个房子很大。",
+    "exampleMeaning": "この家はとても大きいです。"
+  },
+  {
+    "text": "漂亮",
+    "meaning": "美しい / 綺麗",
+    "partOfSpeech": "形容詞",
+    "example": "这里的风景真漂亮。",
+    "exampleMeaning": "ここの景色はとても綺麗ですね。"
+  },
+  {
+    "text": "好吃",
+    "meaning": "美味しい",
+    "partOfSpeech": "形容詞",
+    "example": "这道菜很好吃。",
+    "exampleMeaning": "この料理はとても美味しいです。"
+  },
+  {
+    "text": "非常",
+    "meaning": "とても",
+    "partOfSpeech": "副詞",
+    "example": "我非常喜欢中文。",
+    "exampleMeaning": "私は中国語がとても好きです。"
+  },
+  {
+    "text": "已经",
+    "meaning": "〜した（過去形）",
+    "partOfSpeech": "副詞",
+    "example": "我已经吃过早饭了。",
+    "exampleMeaning": "私はもう朝食を食べました。"
+  },
+  {
+    "text": "在",
+    "meaning": "〜に / 〜で",
+    "partOfSpeech": "前置詞",
+    "example": "我在家。",
+    "exampleMeaning": "私は家にいます。"
+  },
+  {
+    "text": "和",
+    "meaning": "〜と一緒に / 〜で（手段）",
+    "partOfSpeech": "前置詞",
+    "example": "我和朋友一起去玩。",
+    "exampleMeaning": "私は友達と一緒に遊びに行きます。"
+  },
+  {
+    "text": "和",
+    "meaning": "〜と / そして",
+    "partOfSpeech": "接続詞",
+    "example": "我喜欢苹果和香蕉。",
+    "exampleMeaning": "私はりんごとバナナが好きです。"
+  },
+  {
+    "text": "因为",
+    "meaning": "〜だから（理由）",
+    "partOfSpeech": "接続詞",
+    "example": "因为下雨，我不去了。",
+    "exampleMeaning": "雨が降っているので行きません。"
+  },
+  {
+    "text": "一",
+    "meaning": "1",
+    "partOfSpeech": "数詞",
+    "example": "我有一只猫。",
+    "exampleMeaning": "私は猫を1匹飼っています。"
+  },
+  {
+    "text": "多",
+    "meaning": "多い / たくさん",
+    "partOfSpeech": "形容詞",
+    "example": "今天有很多人。",
+    "exampleMeaning": "今日は人がたくさんいます。"
+  },
+  {
+    "text": "热",
+    "meaning": "暑い / 熱い",
+    "partOfSpeech": "形容詞",
+    "example": "今天天气很热。",
+    "exampleMeaning": "今日の天気はとても暑いです。"
+  },
+  {
+    "text": "喜欢",
+    "meaning": "好き",
+    "partOfSpeech": "動詞",
+    "example": "我喜欢吃苹果。",
+    "exampleMeaning": "私はりんごを食べるのが好きです。"
+  },
+  {
+    "text": "朋友",
+    "meaning": "友達・あなた",
+    "partOfSpeech": "名詞／代名詞",
+    "example": "你好吗？",
+    "exampleMeaning": "元気ですか？"
+  },
+  {
+    "text": "喝",
+    "meaning": "飲む",
+    "partOfSpeech": "動詞",
+    "example": "我想喝咖啡。",
+    "exampleMeaning": "私はコーヒーを飲みたいです。"
+  },
+  {
+    "text": "小",
+    "meaning": "小さい",
+    "partOfSpeech": "形容詞",
+    "example": "这只猫很小。",
+    "exampleMeaning": "この猫はとても小さいです。"
+  },
+  {
+    "text": "也",
+    "meaning": "〜も・同様に",
+    "partOfSpeech": "副詞",
+    "example": "我也喜欢吃面条。",
+    "exampleMeaning": "私も麺が好きです。"
+  },
+  {
+    "text": "可以",
+    "meaning": "できる・〜してもよい",
+    "partOfSpeech": "助動詞／動詞",
+    "example": "我可以帮你吗？",
+    "exampleMeaning": "あなたを手伝うことができますか？"
+  },
+  {
+    "text": "但是",
+    "meaning": "しかし・でも",
+    "partOfSpeech": "接続詞",
+    "example": "我喜欢吃面条，但是不喜欢吃米粉。",
+    "exampleMeaning": "私は麺が好きですが、ビーフンは好きではありません。"
+  },
+  {
+    "text": "两",
+    "meaning": "2・二つ",
+    "partOfSpeech": "数詞",
+    "example": "请给我两杯咖啡。",
+    "exampleMeaning": "コーヒーを2杯ください。"
+  },
+  {
+    "text": "上",
+    "meaning": "〜の上に",
+    "partOfSpeech": "前置詞",
+    "example": "书在桌子上。",
+    "exampleMeaning": "本は机の上にあります。"
+  },
+  {
+    "text": "知道",
+    "meaning": "知っている・わかる",
+    "partOfSpeech": "動詞",
+    "example": "你知道去医院的路吗？",
+    "exampleMeaning": "病院への道を知っていますか？"
+  },
+  {
+    "text": "刚",
+    "meaning": "新しい・〜したばかり",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "我刚来北京。",
+    "exampleMeaning": "私は北京に来たばかりです。"
+  },
+  {
+    "text": "车",
+    "meaning": "車／乗り物",
+    "partOfSpeech": "名詞",
+    "example": "这辆车很漂亮。",
+    "exampleMeaning": "この車はとても綺麗です。"
+  },
+  {
+    "text": "读",
+    "meaning": "読む",
+    "partOfSpeech": "動詞",
+    "example": "我每天看书。",
+    "exampleMeaning": "私は毎日本を読みます。"
+  },
+  {
+    "text": "说",
+    "meaning": "話す／言う",
+    "partOfSpeech": "動詞",
+    "example": "你能说慢一点吗？",
+    "exampleMeaning": "もう少しゆっくり話してもらえますか？"
+  },
+  {
+    "text": "便宜",
+    "meaning": "安い",
+    "partOfSpeech": "形容詞",
+    "example": "这个很便宜。",
+    "exampleMeaning": "これはとても安いです。"
+  },
+  {
+    "text": "累",
+    "meaning": "疲れた",
+    "partOfSpeech": "形容詞",
+    "example": "今天我很累。",
+    "exampleMeaning": "今日は私はとても疲れました。"
+  },
+  {
+    "text": "总是",
+    "meaning": "いつも",
+    "partOfSpeech": "副詞",
+    "example": "我总是早起。",
+    "exampleMeaning": "私はいつも早起きします。"
+  },
+  {
+    "text": "如果",
+    "meaning": "もし〜なら",
+    "partOfSpeech": "接続詞",
+    "example": "如果下雨，我就待在家里。",
+    "exampleMeaning": "もし雨が降ったら、私は家にいます。"
+  },
+  {
+    "text": "三",
+    "meaning": "3／三",
+    "partOfSpeech": "数詞",
+    "example": "我有三个朋友。",
+    "exampleMeaning": "私には友達が3人います。"
+  },
+  {
+    "text": "下",
+    "meaning": "〜の下に",
+    "partOfSpeech": "前置詞",
+    "example": "猫躺在桌子下。",
+    "exampleMeaning": "猫はテーブルの下に寝ています。"
+  },
+  {
+    "text": "想",
+    "meaning": "〜したい／欲しい",
+    "partOfSpeech": "動詞",
+    "example": "我想学中文。",
+    "exampleMeaning": "私は中国語を学びたいです。"
+  },
+  {
+    "text": "汽车",
+    "meaning": "車・乗り物",
+    "partOfSpeech": "名詞",
+    "example": "我的车是红色的。",
+    "exampleMeaning": "私の車は赤色です。"
+  },
+  {
+    "text": "饭",
+    "meaning": "ご飯",
+    "partOfSpeech": "名詞",
+    "example": "这里的饭很好吃。",
+    "exampleMeaning": "ここのご飯はとても美味しいです。"
+  },
+  {
+    "text": "书",
+    "meaning": "本",
+    "partOfSpeech": "名詞",
+    "example": "这本书很有趣。",
+    "exampleMeaning": "この本はとても面白いです。"
+  },
+  {
+    "text": "买",
+    "meaning": "買う",
+    "partOfSpeech": "動詞",
+    "example": "我想买新衣服。",
+    "exampleMeaning": "私は新しい服を買いたいです。"
+  },
+  {
+    "text": "卖",
+    "meaning": "売る",
+    "partOfSpeech": "動詞",
+    "example": "他们在这里卖花。",
+    "exampleMeaning": "彼らはここで花を売っています。"
+  },
+  {
+    "text": "听",
+    "meaning": "聞く",
+    "partOfSpeech": "動詞",
+    "example": "你听得见吗？",
+    "exampleMeaning": "聞こえますか？"
+  },
+  {
+    "text": "快",
+    "meaning": "速い・早い",
+    "partOfSpeech": "形容詞",
+    "example": "他跑得很快。",
+    "exampleMeaning": "彼はとても速く走ります。"
+  },
+  {
+    "text": "健康",
+    "meaning": "元気な・健康な",
+    "partOfSpeech": "形容詞",
+    "example": "你好吗？",
+    "exampleMeaning": "お元気ですか？"
+  },
+  {
+    "text": "还是",
+    "meaning": "または・それとも（接続詞）／面白い（形容詞）",
+    "partOfSpeech": "接続詞・形容詞",
+    "example": "你喝咖啡还是茶？",
+    "exampleMeaning": "コーヒーとお茶、どちらを飲みますか？"
+  },
+  {
+    "text": "四",
+    "meaning": "4（四）",
+    "partOfSpeech": "数詞",
+    "example": "我有四个弟弟妹妹。",
+    "exampleMeaning": "私には4人の弟・妹がいます。"
+  },
+  {
+    "text": "市场",
+    "meaning": "市場",
+    "partOfSpeech": "名詞",
+    "example": "我妈妈每天早上去市场。",
+    "exampleMeaning": "私の母は毎朝市場に行きます。"
+  },
+  {
+    "text": "学校",
+    "meaning": "学校",
+    "partOfSpeech": "名詞",
+    "example": "我每天去学校。",
+    "exampleMeaning": "私は毎日学校に行きます。"
+  },
+  {
+    "text": "见",
+    "meaning": "会う",
+    "partOfSpeech": "動詞",
+    "example": "我今天想见你。",
+    "exampleMeaning": "今日あなたに会いたいです。"
+  },
+  {
+    "text": "帮",
+    "meaning": "助ける",
+    "partOfSpeech": "動詞",
+    "example": "他帮我学中文。",
+    "exampleMeaning": "彼は私が中国語を学ぶのを助けてくれます。"
+  },
+  {
+    "text": "快乐",
+    "meaning": "楽しい・嬉しい",
+    "partOfSpeech": "形容詞",
+    "example": "今天我很高兴。",
+    "exampleMeaning": "今日はとても嬉しいです。"
+  },
+  {
+    "text": "伤心",
+    "meaning": "悲しい",
+    "partOfSpeech": "形容詞",
+    "example": "他看起来很伤心。",
+    "exampleMeaning": "彼は悲しそうに見えます。"
+  },
+  {
+    "text": "快",
+    "meaning": "速い・速く",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "他走得很快。",
+    "exampleMeaning": "彼はとても速く歩きます。"
+  },
+  {
+    "text": "慢",
+    "meaning": "遅い・ゆっくり",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "你能说慢一点吗？",
+    "exampleMeaning": "もう少しゆっくり話してもらえますか？"
+  },
+  {
+    "text": "了",
+    "meaning": "もう・すでに（完了）",
+    "partOfSpeech": "副詞",
+    "example": "我吃过了。",
+    "exampleMeaning": "もう食べました。"
+  },
+  {
+    "text": "还没",
+    "meaning": "まだ（〜していない）",
+    "partOfSpeech": "副詞",
+    "example": "我还没吃早饭。",
+    "exampleMeaning": "私はまだ朝食を食べていません。"
+  },
+  {
+    "text": "我",
+    "meaning": "私",
+    "partOfSpeech": "代名詞",
+    "example": "我是日本人。",
+    "exampleMeaning": "私は日本人です。"
+  },
+  {
+    "text": "日",
+    "meaning": "日・日付",
+    "partOfSpeech": "名詞",
+    "example": "今天是几号？",
+    "exampleMeaning": "今日は何日ですか？"
+  },
+  {
+    "text": "到",
+    "meaning": "来る・着く",
+    "partOfSpeech": "動詞",
+    "example": "我七点到学校。",
+    "exampleMeaning": "私は7時に学校に着きます。"
+  },
+  {
+    "text": "忙",
+    "meaning": "忙しい",
+    "partOfSpeech": "形容詞",
+    "example": "今天我很忙。",
+    "exampleMeaning": "今日はとても忙しいです。"
+  },
+  {
+    "text": "只",
+    "meaning": "だけ・もういい",
+    "partOfSpeech": "副詞・終助詞",
+    "example": "我只喝水。",
+    "exampleMeaning": "私は水だけ飲みます。"
+  },
+  {
+    "text": "或者",
+    "meaning": "または・面白い",
+    "partOfSpeech": "接続詞・形容詞",
+    "example": "你喝咖啡还是茶？",
+    "exampleMeaning": "コーヒーと紅茶、どちらを飲みますか？"
+  },
+  {
+    "text": "五",
+    "meaning": "五・年",
+    "partOfSpeech": "数詞・名詞",
+    "example": "我学了五个月的中文。",
+    "exampleMeaning": "私は中国語を5ヶ月間勉強しています。"
+  },
+  {
+    "text": "前",
+    "meaning": "前・以前",
+    "partOfSpeech": "前置詞・副詞",
+    "example": "餐厅就在前面。",
+    "exampleMeaning": "レストランはすぐ前にあります。"
+  },
+  {
+    "text": "懂",
+    "meaning": "理解する・わかる",
+    "partOfSpeech": "動詞",
+    "example": "你懂吗？",
+    "exampleMeaning": "わかりますか？"
+  },
+  {
+    "text": "贵",
+    "meaning": "高い（値段）",
+    "partOfSpeech": "形容詞",
+    "example": "这个太贵了！",
+    "exampleMeaning": "これは高すぎます！"
+  },
+  {
+    "text": "今天",
+    "meaning": "今日",
+    "partOfSpeech": "名詞",
+    "example": "今天天气真好。",
+    "exampleMeaning": "今日はとても天気がいいです。"
+  },
+  {
+    "text": "回",
+    "meaning": "帰る／〜について",
+    "partOfSpeech": "動詞／前置詞",
+    "example": "我六点回家。",
+    "exampleMeaning": "私は6時に家に帰ります。"
+  },
+  {
+    "text": "难",
+    "meaning": "難しい",
+    "partOfSpeech": "形容詞",
+    "example": "这个作业太难了。",
+    "exampleMeaning": "この課題はとても難しいです。"
+  },
+  {
+    "text": "叫",
+    "meaning": "呼ぶ／注文する／電話する",
+    "partOfSpeech": "動詞",
+    "example": "我点面条。",
+    "exampleMeaning": "私は麺を注文します。"
+  },
+  {
+    "text": "一起",
+    "meaning": "一緒に",
+    "partOfSpeech": "副詞",
+    "example": "我们一起去吧。",
+    "exampleMeaning": "一緒に行きましょう。"
+  },
+  {
+    "text": "多少",
+    "meaning": "いくら／どのくらい",
+    "partOfSpeech": "疑問詞",
+    "example": "这个多少钱？",
+    "exampleMeaning": "これはいくらですか？"
+  },
+  {
+    "text": "冷",
+    "meaning": "寒い／冷たい",
+    "partOfSpeech": "形容詞",
+    "example": "今天很冷。",
+    "exampleMeaning": "今日はとても寒いです。"
+  },
+  {
+    "text": "后",
+    "meaning": "後／後ろ",
+    "partOfSpeech": "前置詞／名詞",
+    "example": "我一会见你。",
+    "exampleMeaning": "後であなたに会います。"
+  },
+  {
+    "text": "想念",
+    "meaning": "覚えている／恋しく思う",
+    "partOfSpeech": "動詞",
+    "example": "我很想你。",
+    "exampleMeaning": "あなたがとても恋しいです。"
+  },
+  {
+    "text": "再",
+    "meaning": "もっと／さらに／また",
+    "partOfSpeech": "副詞",
+    "example": "请再给我一杯。",
+    "exampleMeaning": "もう一杯ください。"
+  },
+  {
+    "text": "只",
+    "meaning": "子供／動物を数える助数詞",
+    "partOfSpeech": "名詞・助数詞",
+    "example": "我有两只猫。",
+    "exampleMeaning": "私は猫を2匹飼っています。"
+  },
+  {
+    "text": "椅子",
+    "meaning": "椅子",
+    "partOfSpeech": "名詞",
+    "example": "请坐在椅子上。",
+    "exampleMeaning": "椅子に座ってください。"
+  },
+  {
+    "text": "睡觉",
+    "meaning": "眠る",
+    "partOfSpeech": "動詞",
+    "example": "今晚我想早点睡觉。",
+    "exampleMeaning": "今夜は早く眠りたいです。"
+  },
+  {
+    "text": "跑",
+    "meaning": "走る",
+    "partOfSpeech": "動詞",
+    "example": "每天早上我跑步。",
+    "exampleMeaning": "毎朝私はジョギングをします。"
+  },
+  {
+    "text": "早",
+    "meaning": "早い・早く",
+    "partOfSpeech": "形容詞・副詞",
+    "example": "今天我起得很早。",
+    "exampleMeaning": "今日はとても早く起きました。"
+  },
+  {
+    "text": "近",
+    "meaning": "近い",
+    "partOfSpeech": "形容詞・前置詞",
+    "example": "这家酒店离海很近。",
+    "exampleMeaning": "このホテルは海の近くです。"
+  },
+  {
+    "text": "总是",
+    "meaning": "いつも・常に",
+    "partOfSpeech": "副詞",
+    "example": "她总是很准时。",
+    "exampleMeaning": "彼女はいつも時間通りです。"
+  },
+  {
+    "text": "或者",
+    "meaning": "または・あるいは",
+    "partOfSpeech": "接続詞",
+    "example": "你喝咖啡还是茶？",
+    "exampleMeaning": "コーヒーまたはお茶を飲みますか？"
+  },
+  {
+    "text": "六",
+    "meaning": "6（六）",
+    "partOfSpeech": "数詞",
+    "example": "我有六个兄弟姐妹。",
+    "exampleMeaning": "私は6人兄弟です。"
+  },
+  {
+    "text": "做饭",
+    "meaning": "料理する・炊く",
+    "partOfSpeech": "動詞",
+    "example": "今晚请你做饭。",
+    "exampleMeaning": "今夜はご飯を炊いてください。"
+  },
+  {
+    "text": "桌子",
+    "meaning": "テーブル・机",
+    "partOfSpeech": "名詞",
+    "example": "书在桌子上。",
+    "exampleMeaning": "本は机の上にあります。"
+  },
+  {
+    "text": "门",
+    "meaning": "ドア",
+    "partOfSpeech": "名詞",
+    "example": "请帮我关门。",
+    "exampleMeaning": "ドアを閉めてください。"
+  },
+  {
+    "text": "写",
+    "meaning": "書く",
+    "partOfSpeech": "動詞",
+    "example": "我给你写信。",
+    "exampleMeaning": "私はあなたに手紙を書きます。"
+  },
+  {
+    "text": "问",
+    "meaning": "聞く・質問する",
+    "partOfSpeech": "動詞",
+    "example": "你可以问老师。",
+    "exampleMeaning": "先生に質問することができますよ。"
+  },
+  {
+    "text": "等",
+    "meaning": "待つ",
+    "partOfSpeech": "動詞",
+    "example": "请稍等一下。",
+    "exampleMeaning": "少し待ってください。"
+  },
+  {
+    "text": "容易",
+    "meaning": "簡単な・易しい",
+    "partOfSpeech": "形容詞",
+    "example": "这个练习很容易。",
+    "exampleMeaning": "この練習問題はとても簡単です。"
+  },
+  {
+    "text": "干净",
+    "meaning": "清潔な・きれいな",
+    "partOfSpeech": "形容詞",
+    "example": "你的手干净了吗？",
+    "exampleMeaning": "手はきれいになりましたか？"
+  },
+  {
+    "text": "经常",
+    "meaning": "いつも・普通に",
+    "partOfSpeech": "副詞",
+    "example": "我经常七点吃早饭。",
+    "exampleMeaning": "私はいつも7時に朝食を食べます。"
+  },
+  {
+    "text": "路",
+    "meaning": "道・道路",
+    "partOfSpeech": "名詞",
+    "example": "去学校的路不远。",
+    "exampleMeaning": "学校までの道は遠くありません。"
+  },
+  {
+    "text": "重",
+    "meaning": "重い",
+    "partOfSpeech": "形容詞",
+    "example": "这个行李箱太重了。",
+    "exampleMeaning": "このスーツケースはとても重いですよ。"
+  },
+  {
+    "text": "水果",
+    "meaning": "果物",
+    "partOfSpeech": "名詞",
+    "example": "我喜欢吃新鲜的水果。",
+    "exampleMeaning": "私は新鮮な果物を食べるのが好きです。"
+  },
+  {
+    "text": "穿",
+    "meaning": "着る・身に着ける",
+    "partOfSpeech": "動詞",
+    "example": "今天我穿白衬衫。",
+    "exampleMeaning": "今日私は白いシャツを着ています。"
+  },
+  {
+    "text": "请",
+    "meaning": "どうぞ・お願いします",
+    "partOfSpeech": "副詞",
+    "example": "请稍等。",
+    "exampleMeaning": "少々お待ちください。"
+  },
+  {
+    "text": "医院",
+    "meaning": "病院",
+    "partOfSpeech": "名詞",
+    "example": "我去医院看病。",
+    "exampleMeaning": "私は診察のために病院に行きます。"
+  },
+  {
+    "text": "迅速",
+    "meaning": "すばやく・迅速に",
+    "partOfSpeech": "副詞",
+    "example": "他迅速解决了问题。",
+    "exampleMeaning": "彼はすばやく問題を解決しました。"
+  },
+  {
+    "text": "借",
+    "meaning": "借りる",
+    "partOfSpeech": "動詞",
+    "example": "我想借这本书。",
+    "exampleMeaning": "私はこの本を借りたいです。"
+  },
+  {
+    "text": "七",
+    "meaning": "七・7",
+    "partOfSpeech": "数詞",
+    "example": "我有七本书。",
+    "exampleMeaning": "私は本を7冊持っています。"
+  },
+  {
+    "text": "但是",
+    "meaning": "しかしながら・それでも",
+    "partOfSpeech": "接続詞",
+    "example": "下雨了，但是我还是会去。",
+    "exampleMeaning": "雨が降っていますが、それでも私は行きます。"
+  },
+  {
+    "text": "刚好",
+    "meaning": "ちょうど・ちょうどよい",
+    "partOfSpeech": "副詞",
+    "example": "这件衬衫我穿刚好。",
+    "exampleMeaning": "このシャツは私にちょうど合います。"
+  },
+  {
+    "text": "手机",
+    "meaning": "電話・スマートフォン",
+    "partOfSpeech": "名詞",
+    "example": "我把手机忘在家里了。",
+    "exampleMeaning": "私は家に電話を忘れてきました。"
+  },
+  {
+    "text": "还",
+    "meaning": "返す・支払う",
+    "partOfSpeech": "動詞",
+    "example": "我付钱给他。",
+    "exampleMeaning": "私は彼にお金を支払いました。"
+  },
+  {
+    "text": "开",
+    "meaning": "開ける",
+    "partOfSpeech": "動詞",
+    "example": "请打开窗户。",
+    "exampleMeaning": "窓を開けてください。"
+  },
+  {
+    "text": "关",
+    "meaning": "閉める",
+    "partOfSpeech": "動詞",
+    "example": "请关门，很冷。",
+    "exampleMeaning": "ドアを閉めてください、とても寒いです。"
+  },
+  {
+    "text": "发",
+    "meaning": "送る",
+    "partOfSpeech": "動詞",
+    "example": "请发邮件给我。",
+    "exampleMeaning": "私にメールを送ってください。"
+  },
+  {
+    "text": "八",
+    "meaning": "8（八）",
+    "partOfSpeech": "数詞",
+    "example": "我有八本书。",
+    "exampleMeaning": "私は本を8冊持っています。"
+  },
+  {
+    "text": "敏捷",
+    "meaning": "すばしっこい・機敏な",
+    "partOfSpeech": "形容詞",
+    "example": "那个男孩很敏捷。",
+    "exampleMeaning": "あの男の子はとても機敏です。"
+  },
+  {
+    "text": "勤奋",
+    "meaning": "勤勉な",
+    "partOfSpeech": "形容詞",
+    "example": "他每天勤奋工作。",
+    "exampleMeaning": "彼は毎日勤勉に働いています。"
+  },
+  {
+    "text": "聪明",
+    "meaning": "賢い",
+    "partOfSpeech": "形容詞",
+    "example": "我的女儿很聪明。",
+    "exampleMeaning": "私の娘はとても賢いです。"
+  },
+  {
+    "text": "当...时",
+    "meaning": "〜のとき",
+    "partOfSpeech": "接続詞",
+    "example": "我到的时候，他已经走了。",
+    "exampleMeaning": "私が着いたとき、彼はもう行ってしまっていました。"
+  },
+  {
+    "text": "厨房",
+    "meaning": "キッチン・台所",
+    "partOfSpeech": "名詞",
+    "example": "妈妈在厨房做饭。",
+    "exampleMeaning": "お母さんがキッチンで料理しています。"
+  },
+  {
+    "text": "天空",
+    "meaning": "空・天気",
+    "partOfSpeech": "名詞",
+    "example": "今天的天空真美！",
+    "exampleMeaning": "今日の空はとても綺麗です！"
+  },
+  {
+    "text": "拿",
+    "meaning": "持っていく・運ぶ",
+    "partOfSpeech": "動詞",
+    "example": "你能帮我拿这个吗？",
+    "exampleMeaning": "これを私のために持ってきてもらえますか？"
+  },
+  {
+    "text": "宽敞",
+    "meaning": "広い",
+    "partOfSpeech": "形容詞",
+    "example": "这个房间很宽敞。",
+    "exampleMeaning": "この部屋はとても広いです。"
+  },
+  {
+    "text": "九",
+    "meaning": "九・９",
+    "partOfSpeech": "数詞",
+    "example": "我有九本书。",
+    "exampleMeaning": "私は本を9冊持っています。"
+  },
+  {
+    "text": "真的",
+    "meaning": "本当に・実際に",
+    "partOfSpeech": "副詞",
+    "example": "这个真好吃！",
+    "exampleMeaning": "これは本当においしい！"
+  },
+  {
+    "text": "忘记",
+    "meaning": "忘れる",
+    "partOfSpeech": "動詞",
+    "example": "我忘记带钱包了。",
+    "exampleMeaning": "財布を持ってくるのを忘れました。"
+  },
+  {
+    "text": "旧",
+    "meaning": "古い・使い古した",
+    "partOfSpeech": "形容詞",
+    "example": "这辆车很旧。",
+    "exampleMeaning": "この車はとても古いです。"
+  },
+  {
+    "text": "飞机",
+    "meaning": "飛行機",
+    "partOfSpeech": "名詞",
+    "example": "我坐飞机去日本。",
+    "exampleMeaning": "私は飛行機で日本に行きます。"
+  },
+  {
+    "text": "什么时候",
+    "meaning": "いつ（疑問）",
+    "partOfSpeech": "副詞",
+    "example": "你什么时候回家？",
+    "exampleMeaning": "あなたはいつ家に帰りますか？"
+  },
+  {
+    "text": "如果",
+    "meaning": "もし〜ならば",
+    "partOfSpeech": "接続詞",
+    "example": "如果下雨，我就待在家里。",
+    "exampleMeaning": "もし雨が降ったら、私は家にいます。"
+  },
+  {
+    "text": "买菜",
+    "meaning": "買い物（市場での）",
+    "partOfSpeech": "名詞",
+    "example": "我妈妈每天早上买菜。",
+    "exampleMeaning": "私の母は毎朝買い物に行きます。"
+  },
+  {
+    "text": "衣服",
+    "meaning": "服・衣類",
+    "partOfSpeech": "名詞",
+    "example": "我需要买新衣服。",
+    "exampleMeaning": "私は新しい服を買う必要があります。"
+  },
+  {
+    "text": "觉得",
+    "meaning": "思う・考える",
+    "partOfSpeech": "動詞",
+    "example": "我觉得他是对的。",
+    "exampleMeaning": "私は彼が正しいと思います。"
+  },
+  {
+    "text": "遇见",
+    "meaning": "会う・出会う",
+    "partOfSpeech": "動詞",
+    "example": "我们在公园遇见了。",
+    "exampleMeaning": "私たちは公園で出会いました。"
+  },
+  {
+    "text": "冷清",
+    "meaning": "人がいない・静かな",
+    "partOfSpeech": "形容詞",
+    "example": "晚上街道很冷清。",
+    "exampleMeaning": "夜は道がとても人気がありません。"
+  },
+  {
+    "text": "苦",
+    "meaning": "苦い",
+    "partOfSpeech": "形容詞",
+    "example": "这咖啡太苦了。",
+    "exampleMeaning": "このコーヒーはとても苦いです。"
+  },
+  {
+    "text": "马上",
+    "meaning": "すぐに・まっすぐ",
+    "partOfSpeech": "副詞",
+    "example": "我马上就来。",
+    "exampleMeaning": "すぐに行きます。"
+  },
+  {
+    "text": "十",
+    "meaning": "10（十）",
+    "partOfSpeech": "数詞",
+    "example": "我有十本书。",
+    "exampleMeaning": "私は本を10冊持っています。"
+  },
+  {
+    "text": "虽然",
+    "meaning": "〜にもかかわらず",
+    "partOfSpeech": "接続詞",
+    "example": "虽然下雨，我还是走路去了。",
+    "exampleMeaning": "雨にもかかわらず、私は歩いて行きました。"
+  },
+  {
+    "text": "中间",
+    "meaning": "〜の間・中央に",
+    "partOfSpeech": "前置詞",
+    "example": "银行在两栋楼的中间。",
+    "exampleMeaning": "銀行は2つのビルの間にあります。"
+  },
+  {
+    "text": "回答",
+    "meaning": "答える・返答する",
+    "partOfSpeech": "動詞",
+    "example": "他问题回答得很好。",
+    "exampleMeaning": "彼は質問にとても上手く答えた。"
+  },
+  {
+    "text": "准备",
+    "meaning": "準備する",
+    "partOfSpeech": "動詞",
+    "example": "出发前我们需要准备。",
+    "exampleMeaning": "出発前に準備が必要だ。"
+  },
+  {
+    "text": "休息",
+    "meaning": "休む",
+    "partOfSpeech": "動詞",
+    "example": "你想休息一下吗？",
+    "exampleMeaning": "少し休みたいですか？"
+  },
+  {
+    "text": "家庭",
+    "meaning": "家族",
+    "partOfSpeech": "名詞",
+    "example": "我家有四口人。",
+    "exampleMeaning": "私の家族は4人います。"
+  },
+  {
+    "text": "朋友",
+    "meaning": "友達",
+    "partOfSpeech": "名詞",
+    "example": "我喜欢和朋友去咖啡馆。",
+    "exampleMeaning": "友達とカフェに行くのが好きだ。"
+  },
+  {
+    "text": "工作",
+    "meaning": "仕事",
+    "partOfSpeech": "名詞",
+    "example": "这份工作很有趣。",
+    "exampleMeaning": "この仕事はとても面白い。"
+  },
+  {
+    "text": "有趣",
+    "meaning": "面白い・興味深い",
+    "partOfSpeech": "形容詞",
+    "example": "这本书很有趣。",
+    "exampleMeaning": "この本はとても面白い。"
+  },
+  {
+    "text": "重要",
+    "meaning": "重要な",
+    "partOfSpeech": "形容詞",
+    "example": "健康对每个人都很重要。",
+    "exampleMeaning": "健康はすべての人にとってとても重要だ。"
+  },
+  {
+    "text": "安静",
+    "meaning": "静かな",
+    "partOfSpeech": "形容詞",
+    "example": "我喜欢安静的地方。",
+    "exampleMeaning": "私は静かな場所が好きだ。"
+  },
+  {
+    "text": "偶尔",
+    "meaning": "時々・たまに",
+    "partOfSpeech": "副詞",
+    "example": "偶尔我一个人去看电影。",
+    "exampleMeaning": "時々一人で映画を見に行く。"
+  },
+  {
+    "text": "爱",
+    "meaning": "愛する・好きだ",
+    "partOfSpeech": "動詞",
+    "example": "我爱我的家人。",
+    "exampleMeaning": "私は自分の家族を愛しています。"
+  },
+  {
+    "text": "幸福",
+    "meaning": "幸せ・幸福",
+    "partOfSpeech": "形容詞",
+    "example": "我的家庭很幸福。",
+    "exampleMeaning": "私の家族はとても幸せです。"
+  },
+  {
+    "text": "为什么",
+    "meaning": "なぜ・どうして",
+    "partOfSpeech": "副詞",
+    "example": "你为什么不吃饭？",
+    "exampleMeaning": "なぜあなたはご飯を食べないのですか？"
+  },
+  {
+    "text": "生活",
+    "meaning": "生活・人生",
+    "partOfSpeech": "名詞",
+    "example": "在中国的生活很有趣。",
+    "exampleMeaning": "中国での生活はとても面白いです。"
+  },
+  {
+    "text": "同意",
+    "meaning": "同意する・賛成する",
+    "partOfSpeech": "動詞",
+    "example": "我同意你的意见。",
+    "exampleMeaning": "私はあなたの意見に賛成です。"
+  },
+  {
+    "text": "着急",
+    "meaning": "急いでいる・急ぐ",
+    "partOfSpeech": "形容詞／動詞",
+    "example": "我在赶时间，不能说话。",
+    "exampleMeaning": "急いでいるので、話せません。"
+  },
+  {
+    "text": "天气",
+    "meaning": "天気",
+    "partOfSpeech": "名詞",
+    "example": "今天天气很好。",
+    "exampleMeaning": "今日の天気はとても良いです。"
+  },
+  {
+    "text": "还",
+    "meaning": "まだ・依然として",
+    "partOfSpeech": "副詞",
+    "example": "我还没明白这节课。",
+    "exampleMeaning": "私はまだこのレッスンを理解していません。"
+  },
+  {
+    "text": "水上市场",
+    "meaning": "水上マーケット",
+    "partOfSpeech": "名詞",
+    "example": "水上市场很有名。",
+    "exampleMeaning": "水上マーケットはとても有名です。"
+  },
+  {
+    "text": "机场",
+    "meaning": "空港",
+    "partOfSpeech": "名詞",
+    "example": "我早上七点到机场。",
+    "exampleMeaning": "私は朝7時に空港に着きました。"
+  },
+  {
+    "text": "餐厅",
+    "meaning": "レストラン",
+    "partOfSpeech": "名詞",
+    "example": "这家餐厅服务很好。",
+    "exampleMeaning": "このレストランはサービスがとても良いです。"
+  },
+  {
+    "text": "酒店",
+    "meaning": "ホテル",
+    "partOfSpeech": "名詞",
+    "example": "这家酒店有很漂亮的游泳池。",
+    "exampleMeaning": "このホテルにはとても美しいプールがあります。"
+  },
+  {
+    "text": "学",
+    "meaning": "勉強する・学ぶ",
+    "partOfSpeech": "動詞",
+    "example": "我每天学中文。",
+    "exampleMeaning": "私は毎日中国語を勉強します。"
+  },
+  {
+    "text": "玩",
+    "meaning": "遊ぶ",
+    "partOfSpeech": "動詞",
+    "example": "周末我经常做运动。",
+    "exampleMeaning": "週末は普段スポーツをして遊びます。"
+  },
+  {
+    "text": "教",
+    "meaning": "教える",
+    "partOfSpeech": "動詞",
+    "example": "妈妈教我做饭。",
+    "exampleMeaning": "母は私に料理を教えてくれました。"
+  },
+  {
+    "text": "快乐",
+    "meaning": "陽気な・楽しい",
+    "partOfSpeech": "形容詞",
+    "example": "她对每个人总是很快乐。",
+    "exampleMeaning": "彼女はいつも皆に対して陽気です。"
+  },
+  {
+    "text": "困难",
+    "meaning": "困難な",
+    "partOfSpeech": "形容詞",
+    "example": "这个作业对我来说很困难。",
+    "exampleMeaning": "この課題は私にとってとても困難です。"
+  },
+  {
+    "text": "正常",
+    "meaning": "普通の・普段通り",
+    "partOfSpeech": "形容詞",
+    "example": "一切都像以前一样正常。",
+    "exampleMeaning": "すべては以前と変わらず普通です。"
+  }
+]

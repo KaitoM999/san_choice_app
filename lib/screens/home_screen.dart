@@ -1,10 +1,15 @@
-import 'dart:math' as math; // 💡 フワフワ動く計算（サイン波）のために必要
-import 'package:flutter/material.dart'; // Flutterの基本パーツ
-import 'package:google_fonts/google_fonts.dart'; // フォント用
-import 'block_selection_screen.dart'; // 移動先
-import 'character_intro_screen.dart'; // 移動先
+import 'dart:math' as math;
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // 💡 追加
 
-// ホーム画面の本体
+import '../models/language_config.dart'; // 💡 言語のルールブックを追加
+import '../widgets/snowy_background.dart'; // 💡 共通背景を追加
+
+import 'block_selection_screen.dart';
+import 'character_intro_screen.dart';
+import 'word_list_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,15 +19,45 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  
+  // 💡 現在選択されている言語を保持する変数
+  late LanguageConfig _currentLanguage;
+  bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    // 💡 2秒かけて1往復するアニメーションの設定
+    // 初期値として最初の言語（ベトナム語）をセット
+    _currentLanguage = LanguageConfig.supportedLanguages.first;
+    _loadSavedLanguage(); // 💡 保存された言語を読み込む
+
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
-    )..repeat(reverse: true); // 永遠に繰り返す
+    )..repeat(reverse: true);
+  }
+
+  // 💡 スマホに保存されている言語設定を読み込む処理
+  Future<void> _loadSavedLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLangId = prefs.getString('selected_language') ?? 'vi';
+    
+    setState(() {
+      _currentLanguage = LanguageConfig.supportedLanguages.firstWhere(
+        (lang) => lang.id == savedLangId,
+        orElse: () => LanguageConfig.supportedLanguages.first,
+      );
+      _isLoading = false;
+    });
+  }
+
+  // 💡 選択した言語を保存する処理
+  Future<void> _setLanguage(LanguageConfig lang) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('selected_language', lang.id);
+    setState(() {
+      _currentLanguage = lang;
+    });
   }
 
   @override
@@ -33,27 +68,22 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        backgroundColor: Color(0xFF8B0000),
+        body: Center(child: CircularProgressIndicator(color: Colors.white)),
+      );
+    }
+
+    // 💡 タイトル用に「ベトナム語 (Tiếng Việt)」のスペースより前の部分だけ切り取る
+    final String displayTitleName = _currentLanguage.name.split(' ')[0];
+
     return Scaffold(
-      // 💡 謎の青い枠対策：Scaffold自体の背景を濃い赤にする
       backgroundColor: const Color(0xFF8B0000), 
-      
-      body: Container(
-        // 💡 画面の端から端までグラデーションを広げる
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 1.2,
-            colors: [Color(0xFFE53935), Color(0xFF8B0000)],
-          ),
-        ),
+      // 💡 SnowyBackground を適用してスッキリ！
+      body: SnowyBackground(
         child: Stack(
           children: [
-            // 背景に降る雪の結晶
-            ..._buildSnowflakes(),
-
-            // 1. --- 左側のツリー画像 ---
             Positioned(
               left: -400, 
               bottom: 150, 
@@ -64,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ),
 
-            // 2. --- 右側の家画像 ---
             Positioned(
               right: -400, 
               bottom: 150, 
@@ -75,11 +104,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ),
 
-            // 3. --- 中央のロースちゃん ＆ トナカイくん（巨大化 ＆ 光） ---
             Positioned(
-              // 💡 巨大化した画像を画面中央に持ってくる計算
               left: (MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 2.5)) / 2,
-              bottom: 50, 
+              bottom: 00, 
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (context, child) {
@@ -89,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        // 💡 ぼんやりとした「後光」
                         Container(
                           width: MediaQuery.of(context).size.width * 1.5,
                           height: MediaQuery.of(context).size.width * 1.5,
@@ -104,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             ],
                           ),
                         ),
-                        // 💡 ロースちゃん本体（巨大！）
                         Image.asset(
                           'assets/images/home_screen_center.png',
                           width: MediaQuery.of(context).size.width * 2.5, 
@@ -117,26 +142,24 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ),
 
-            // 4. --- 前景のタイトルとボタン ---
             SafeArea(
               child: SizedBox(
-                width: double.infinity, // 💡 これが重要！ボタンの土台を画面いっぱいに広げる
+                width: double.infinity, 
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center, // 💡 左右中央に揃える
+                    crossAxisAlignment: CrossAxisAlignment.center, 
                     children: [
-                      const SizedBox(height: 30),
-                      Text(
-                        'Merry Learning! 🎄',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.greatVibes(
-                          textStyle: const TextStyle(color: Colors.white, fontSize: 32), 
-                        ),
+                      // 💡 右上に言語選択ボタンを配置
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: _buildLanguageSelector(),
                       ),
+
                       const SizedBox(height: 5),
                       Text(
-                        'ベトナム語クイズ',
+                        // 💡 動的に「〇〇語クイズ」に変わる！
+                        '$displayTitleNameクイズ',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.notoSansJp(
                           textStyle: const TextStyle(
@@ -163,7 +186,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ),
                       const Spacer(), 
                       
-                      // 学習をはじめるボタン
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.85,
                         height: 65, 
@@ -198,7 +220,40 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ),
                       const SizedBox(height: 15),
 
-                      // キャラクター紹介ボタン
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        height: 55,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const WordListScreen()),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white.withOpacity(0.9), 
+                            foregroundColor: const Color(0xFF8B0000),
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              side: const BorderSide(color: Color(0xFF8B0000), width: 2),
+                            ),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('📚', style: TextStyle(fontSize: 20)),
+                              SizedBox(width: 15),
+                              Text(
+                                '単語一覧（復習）',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, letterSpacing: 1.2),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.85,
                         height: 55, 
@@ -221,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('📖', style: TextStyle(fontSize: 20)),
+                              Text('⛄️', style: TextStyle(fontSize: 20)),
                               SizedBox(width: 15),
                               Text(
                                 'キャラクター紹介',
@@ -231,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           ),
                         ),
                       ),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 00),
                     ],
                   ),
                 ),
@@ -243,19 +298,36 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     );
   }
 
-  // --- 雪の結晶パーツ ---
-  List<Widget> _buildSnowflakes() {
-    return [
-      _p(top: 80, left: 40, size: 80, opacity: 0.2), 
-      _p(top: 180, right: 60, size: 70, opacity: 0.2),
-      _p(top: 350, left: 20, size: 120, opacity: 0.1), 
-    ];
-  }
-
-  Widget _p({double? top, double? left, double? right, double? bottom, required double size, double opacity = 0.4}) {
-    return Positioned(
-      top: top, left: left, right: right, bottom: bottom, 
-      child: Icon(Icons.ac_unit, color: Colors.white.withOpacity(opacity), size: size),
+  // 💡 言語を選択するドロップダウンボタン
+  Widget _buildLanguageSelector() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.5), width: 1),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<LanguageConfig>(
+          value: _currentLanguage,
+          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+          dropdownColor: const Color(0xFF8B0000),
+          style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          onChanged: (LanguageConfig? newValue) {
+            if (newValue != null) {
+              _setLanguage(newValue);
+            }
+          },
+          items: LanguageConfig.supportedLanguages.map<DropdownMenuItem<LanguageConfig>>((LanguageConfig lang) {
+            return DropdownMenuItem<LanguageConfig>(
+              value: lang,
+              child: Text('${lang.flag} ${lang.name}'),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
+
+  // 💡 雪の結晶は SnowyBackground に任せたので _buildSnowflakes は削除！
 }

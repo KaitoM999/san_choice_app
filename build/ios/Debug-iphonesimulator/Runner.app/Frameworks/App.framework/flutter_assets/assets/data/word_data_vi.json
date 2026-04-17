@@ -1,0 +1,1220 @@
+[
+  {
+    "text": "Xin chào",
+    "meaning": "こんにちは",
+    "partOfSpeech": "挨拶",
+    "example": "Xin chào, tôi là Tanaka.",
+    "exampleMeaning": "こんにちは、私は田中です。"
+  },
+  {
+    "text": "Cảm ơn",
+    "meaning": "ありがとう",
+    "partOfSpeech": "挨拶",
+    "example": "Cảm ơn vì món quà.",
+    "exampleMeaning": "プレゼントをありがとう。"
+  },
+  {
+    "text": "Tạm biệt",
+    "meaning": "さようなら",
+    "partOfSpeech": "挨拶",
+    "example": "Chúc ngủ ngon, tạm biệt.",
+    "exampleMeaning": "おやすみなさい、さようなら。"
+  },
+  {
+    "text": "Hẹn gặp lại",
+    "meaning": "また会いましょう",
+    "partOfSpeech": "挨拶",
+    "example": "Hẹn gặp lại vào ngày mai.",
+    "exampleMeaning": "また明日会いましょう。"
+  },
+  {
+    "text": "Xin lỗi",
+    "meaning": "すみません/ごめんなさい",
+    "partOfSpeech": "挨拶",
+    "example": "Xin lỗi, cho tôi hỏi...",
+    "exampleMeaning": "すみません、お尋ねしたいのですが…"
+  },
+  {
+    "text": "Không sao",
+    "meaning": "問題ない/大丈夫",
+    "partOfSpeech": "挨拶",
+    "example": "Việc đó không sao đâu.",
+    "exampleMeaning": "それは大丈夫（問題ない）ですよ。"
+  },
+  {
+    "text": "nhà",
+    "meaning": "家",
+    "partOfSpeech": "名詞",
+    "example": "Nhà của tôi ở Tokyo.",
+    "exampleMeaning": "私の家は東京にあります。"
+  },
+  {
+    "text": "tiền",
+    "meaning": "お金",
+    "partOfSpeech": "名詞",
+    "example": "Tôi không có tiền.",
+    "exampleMeaning": "私はお金がありません。"
+  },
+  {
+    "text": "nước",
+    "meaning": "水",
+    "partOfSpeech": "名詞",
+    "example": "Cho tôi một cốc nước.",
+    "exampleMeaning": "水を一杯ください。"
+  },
+  {
+    "text": "ăn",
+    "meaning": "食べる",
+    "partOfSpeech": "動詞",
+    "example": "Tôi ăn phở.",
+    "exampleMeaning": "私はフォーを食べる。"
+  },
+  {
+    "text": "đi",
+    "meaning": "行く",
+    "partOfSpeech": "動詞",
+    "example": "Ngày mai tôi đi làm.",
+    "exampleMeaning": "明日、私は仕事に行きます。"
+  },
+  {
+    "text": "xem",
+    "meaning": "見る",
+    "partOfSpeech": "動詞",
+    "example": "Tôi đang xem phim.",
+    "exampleMeaning": "私は映画を見ています。"
+  },
+  {
+    "text": "làm",
+    "meaning": "する / 作る",
+    "partOfSpeech": "動詞",
+    "example": "Bạn đang làm gì vậy?",
+    "exampleMeaning": "あなたは何をしていますか？"
+  },
+  {
+    "text": "lớn",
+    "meaning": "大きい",
+    "partOfSpeech": "形容詞",
+    "example": "Ngôi nhà này rất lớn.",
+    "exampleMeaning": "この家はとても大きいです。"
+  },
+  {
+    "text": "đẹp",
+    "meaning": "美しい / 綺麗",
+    "partOfSpeech": "形容詞",
+    "example": "Cảnh ở đây đẹp quá.",
+    "exampleMeaning": "ここの景色はとても綺麗ですね。"
+  },
+  {
+    "text": "ngon",
+    "meaning": "美味しい",
+    "partOfSpeech": "形容詞",
+    "example": "Món ăn này rất ngon.",
+    "exampleMeaning": "この料理はとても美味しいです。"
+  },
+  {
+    "text": "rất",
+    "meaning": "とても",
+    "partOfSpeech": "副詞",
+    "example": "Tôi rất thích tiếng Việt.",
+    "exampleMeaning": "私はベトナム語がとても好きです。"
+  },
+  {
+    "text": "đã",
+    "meaning": "〜した（過去形）",
+    "partOfSpeech": "副詞",
+    "example": "Tôi đã ăn sáng rồi.",
+    "exampleMeaning": "私はもう朝食を食べました。"
+  },
+  {
+    "text": "ở",
+    "meaning": "〜に / 〜で",
+    "partOfSpeech": "前置詞",
+    "example": "Tôi đang ở nhà.",
+    "exampleMeaning": "私は家にいます。"
+  },
+  {
+    "text": "với",
+    "meaning": "〜と一緒に / 〜で（手段）",
+    "partOfSpeech": "前置詞",
+    "example": "Tôi đi chơi với bạn.",
+    "exampleMeaning": "私は友達と一緒に遊びに行きます。"
+  },
+  {
+    "text": "và",
+    "meaning": "〜と / そして",
+    "partOfSpeech": "接続詞",
+    "example": "Tôi thích táo và chuối.",
+    "exampleMeaning": "私はりんごとバナナが好きです。"
+  },
+  {
+    "text": "vì",
+    "meaning": "〜だから（理由）",
+    "partOfSpeech": "接続詞",
+    "example": "Tôi không đi vì trời mưa.",
+    "exampleMeaning": "雨が降っているので行きません。"
+  },
+  {
+    "text": "một",
+    "meaning": "1",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có một con mèo.",
+    "exampleMeaning": "私は猫を1匹飼っています。"
+  },
+  {
+    "text": "nhiều",
+    "meaning": "多い / たくさん",
+    "partOfSpeech": "形容詞",
+    "example": "Hôm nay có nhiều người.",
+    "exampleMeaning": "今日は人がたくさんいます。"
+  },
+  {
+    "text": "nóng",
+    "meaning": "暑い / 熱い",
+    "partOfSpeech": "形容詞",
+    "example": "Thời tiết hôm nay rất nóng.",
+    "exampleMeaning": "今日の天気はとても暑いです。"
+  },
+  {
+    "text": "thích",
+    "meaning": "好き",
+    "partOfSpeech": "動詞",
+    "example": "Tôi thích ăn táo.",
+    "exampleMeaning": "私はりんごを食べるのが好きです。"
+  },
+  {
+    "text": "bạn",
+    "meaning": "友達・あなた",
+    "partOfSpeech": "名詞／代名詞",
+    "example": "Bạn có khỏe không?",
+    "exampleMeaning": "元気ですか？"
+  },
+  {
+    "text": "uống",
+    "meaning": "飲む",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn uống cà phê.",
+    "exampleMeaning": "私はコーヒーを飲みたいです。"
+  },
+  {
+    "text": "nhỏ",
+    "meaning": "小さい",
+    "partOfSpeech": "形容詞",
+    "example": "Con mèo này rất nhỏ.",
+    "exampleMeaning": "この猫はとても小さいです。"
+  },
+  {
+    "text": "cũng",
+    "meaning": "〜も・同様に",
+    "partOfSpeech": "副詞",
+    "example": "Tôi cũng thích phở.",
+    "exampleMeaning": "私もフォーが好きです。"
+  },
+  {
+    "text": "được",
+    "meaning": "できる・〜してもよい",
+    "partOfSpeech": "助動詞／動詞",
+    "example": "Tôi có thể giúp bạn được không?",
+    "exampleMeaning": "あなたを手伝うことができますか？"
+  },
+  {
+    "text": "nhưng",
+    "meaning": "しかし・でも",
+    "partOfSpeech": "接続詞",
+    "example": "Tôi thích ăn phở nhưng không thích ăn bún.",
+    "exampleMeaning": "私はフォーが好きですが、ブンは好きではありません。"
+  },
+  {
+    "text": "hai",
+    "meaning": "2・二つ",
+    "partOfSpeech": "数詞",
+    "example": "Cho tôi hai ly cà phê.",
+    "exampleMeaning": "コーヒーを2杯ください。"
+  },
+  {
+    "text": "trên",
+    "meaning": "〜の上に",
+    "partOfSpeech": "前置詞",
+    "example": "Quyển sách ở trên bàn.",
+    "exampleMeaning": "本は机の上にあります。"
+  },
+  {
+    "text": "biết",
+    "meaning": "知っている・わかる",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có biết đường đến bệnh viện không?",
+    "exampleMeaning": "病院への道を知っていますか？"
+  },
+  {
+    "text": "mới",
+    "meaning": "新しい・〜したばかり",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "Tôi mới đến Hà Nội.",
+    "exampleMeaning": "私はハノイに来たばかりです。"
+  },
+  {
+    "text": "xe",
+    "meaning": "車／乗り物",
+    "partOfSpeech": "名詞",
+    "example": "Xe này rất đẹp.",
+    "exampleMeaning": "この車はとても綺麗です。"
+  },
+  {
+    "text": "đọc",
+    "meaning": "読む",
+    "partOfSpeech": "動詞",
+    "example": "Tôi đọc sách mỗi ngày.",
+    "exampleMeaning": "私は毎日本を読みます。"
+  },
+  {
+    "text": "nói",
+    "meaning": "話す／言う",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có thể nói chậm hơn không?",
+    "exampleMeaning": "もう少しゆっくり話してもらえますか？"
+  },
+  {
+    "text": "rẻ",
+    "meaning": "安い",
+    "partOfSpeech": "形容詞",
+    "example": "Cái này rẻ lắm.",
+    "exampleMeaning": "これはとても安いです。"
+  },
+  {
+    "text": "mệt",
+    "meaning": "疲れた",
+    "partOfSpeech": "形容詞",
+    "example": "Hôm nay tôi rất mệt.",
+    "exampleMeaning": "今日は私はとても疲れました。"
+  },
+  {
+    "text": "luôn",
+    "meaning": "いつも",
+    "partOfSpeech": "副詞",
+    "example": "Tôi luôn thức dậy sớm.",
+    "exampleMeaning": "私はいつも早起きします。"
+  },
+  {
+    "text": "nếu",
+    "meaning": "もし〜なら",
+    "partOfSpeech": "接続詞",
+    "example": "Nếu trời mưa, tôi ở nhà.",
+    "exampleMeaning": "もし雨が降ったら、私は家にいます。"
+  },
+  {
+    "text": "ba",
+    "meaning": "3／三",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có ba người bạn.",
+    "exampleMeaning": "私には友達が3人います。"
+  },
+  {
+    "text": "dưới",
+    "meaning": "〜の下に",
+    "partOfSpeech": "前置詞",
+    "example": "Mèo nằm dưới bàn.",
+    "exampleMeaning": "猫はテーブルの下に寝ています。"
+  },
+  {
+    "text": "muốn",
+    "meaning": "〜したい／欲しい",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn học tiếng Việt.",
+    "exampleMeaning": "私はベトナム語を学びたいです。"
+  },
+  {
+    "text": "xe",
+    "meaning": "車・乗り物",
+    "partOfSpeech": "名詞",
+    "example": "Xe của tôi màu đỏ.",
+    "exampleMeaning": "私の車は赤色です。"
+  },
+  {
+    "text": "cơm",
+    "meaning": "ご飯",
+    "partOfSpeech": "名詞",
+    "example": "Cơm ở đây rất ngon.",
+    "exampleMeaning": "ここのご飯はとても美味しいです。"
+  },
+  {
+    "text": "sách",
+    "meaning": "本",
+    "partOfSpeech": "名詞",
+    "example": "Quyển sách này rất hay.",
+    "exampleMeaning": "この本はとても面白いです。"
+  },
+  {
+    "text": "mua",
+    "meaning": "買う",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn mua áo mới.",
+    "exampleMeaning": "私は新しい服を買いたいです。"
+  },
+  {
+    "text": "bán",
+    "meaning": "売る",
+    "partOfSpeech": "動詞",
+    "example": "Họ bán hoa ở đây.",
+    "exampleMeaning": "彼らはここで花を売っています。"
+  },
+  {
+    "text": "nghe",
+    "meaning": "聞く",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có nghe không?",
+    "exampleMeaning": "聞こえますか？"
+  },
+  {
+    "text": "nhanh",
+    "meaning": "速い・早い",
+    "partOfSpeech": "形容詞",
+    "example": "Anh ấy chạy rất nhanh.",
+    "exampleMeaning": "彼はとても速く走ります。"
+  },
+  {
+    "text": "khỏe",
+    "meaning": "元気な・健康な",
+    "partOfSpeech": "形容詞",
+    "example": "Bạn có khỏe không?",
+    "exampleMeaning": "お元気ですか？"
+  },
+  {
+    "text": "hay",
+    "meaning": "または・それとも（接続詞）／面白い（形容詞）",
+    "partOfSpeech": "接続詞・形容詞",
+    "example": "Bạn uống cà phê hay trà?",
+    "exampleMeaning": "コーヒーとお茶、どちらを飲みますか？"
+  },
+  {
+    "text": "bốn",
+    "meaning": "4（四）",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có bốn người em.",
+    "exampleMeaning": "私には4人の弟・妹がいます。"
+  },
+  {
+    "text": "chợ",
+    "meaning": "市場",
+    "partOfSpeech": "名詞",
+    "example": "Mẹ tôi đi chợ mỗi sáng.",
+    "exampleMeaning": "私の母は毎朝市場に行きます。"
+  },
+  {
+    "text": "trường",
+    "meaning": "学校",
+    "partOfSpeech": "名詞",
+    "example": "Tôi đi trường mỗi ngày.",
+    "exampleMeaning": "私は毎日学校に行きます。"
+  },
+  {
+    "text": "gặp",
+    "meaning": "会う",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn gặp bạn hôm nay.",
+    "exampleMeaning": "今日あなたに会いたいです。"
+  },
+  {
+    "text": "giúp",
+    "meaning": "助ける",
+    "partOfSpeech": "動詞",
+    "example": "Anh ấy giúp tôi học tiếng Việt.",
+    "exampleMeaning": "彼は私がベトナム語を学ぶのを助けてくれます。"
+  },
+  {
+    "text": "vui",
+    "meaning": "楽しい・嬉しい",
+    "partOfSpeech": "形容詞",
+    "example": "Hôm nay tôi rất vui.",
+    "exampleMeaning": "今日はとても嬉しいです。"
+  },
+  {
+    "text": "buồn",
+    "meaning": "悲しい",
+    "partOfSpeech": "形容詞",
+    "example": "Anh ấy trông có vẻ buồn.",
+    "exampleMeaning": "彼は悲しそうに見えます。"
+  },
+  {
+    "text": "nhanh",
+    "meaning": "速い・速く",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "Anh ấy đi rất nhanh.",
+    "exampleMeaning": "彼はとても速く歩きます。"
+  },
+  {
+    "text": "chậm",
+    "meaning": "遅い・ゆっくり",
+    "partOfSpeech": "形容詞／副詞",
+    "example": "Bạn có thể nói chậm hơn không?",
+    "exampleMeaning": "もう少しゆっくり話してもらえますか？"
+  },
+  {
+    "text": "rồi",
+    "meaning": "もう・すでに（完了）",
+    "partOfSpeech": "副詞",
+    "example": "Tôi ăn rồi.",
+    "exampleMeaning": "もう食べました。"
+  },
+  {
+    "text": "chưa",
+    "meaning": "まだ（〜していない）",
+    "partOfSpeech": "副詞",
+    "example": "Tôi chưa ăn sáng.",
+    "exampleMeaning": "私はまだ朝食を食べていません。"
+  },
+  {
+    "text": "tôi",
+    "meaning": "私",
+    "partOfSpeech": "代名詞",
+    "example": "Tôi là người Nhật.",
+    "exampleMeaning": "私は日本人です。"
+  },
+  {
+    "text": "ngày",
+    "meaning": "日・日付",
+    "partOfSpeech": "名詞",
+    "example": "Hôm nay là ngày mấy?",
+    "exampleMeaning": "今日は何日ですか？"
+  },
+  {
+    "text": "đến",
+    "meaning": "来る・着く",
+    "partOfSpeech": "動詞",
+    "example": "Tôi đến trường lúc bảy giờ.",
+    "exampleMeaning": "私は7時に学校に着きます。"
+  },
+  {
+    "text": "bận",
+    "meaning": "忙しい",
+    "partOfSpeech": "形容詞",
+    "example": "Hôm nay tôi rất bận.",
+    "exampleMeaning": "今日はとても忙しいです。"
+  },
+  {
+    "text": "thôi",
+    "meaning": "だけ・もういい",
+    "partOfSpeech": "副詞・終助詞",
+    "example": "Tôi uống nước thôi.",
+    "exampleMeaning": "私は水だけ飲みます。"
+  },
+  {
+    "text": "hay",
+    "meaning": "または・面白い",
+    "partOfSpeech": "接続詞・形容詞",
+    "example": "Bạn uống cà phê hay trà?",
+    "exampleMeaning": "コーヒーと紅茶、どちらを飲みますか？"
+  },
+  {
+    "text": "năm",
+    "meaning": "五・年",
+    "partOfSpeech": "数詞・名詞",
+    "example": "Tôi học tiếng Việt được năm tháng.",
+    "exampleMeaning": "私はベトナム語を5ヶ月間勉強しています。"
+  },
+  {
+    "text": "trước",
+    "meaning": "前・以前",
+    "partOfSpeech": "前置詞・副詞",
+    "example": "Nhà hàng ở ngay trước mặt.",
+    "exampleMeaning": "レストランはすぐ前にあります。"
+  },
+  {
+    "text": "hiểu",
+    "meaning": "理解する・わかる",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có hiểu không?",
+    "exampleMeaning": "わかりますか？"
+  },
+  {
+    "text": "đắt",
+    "meaning": "高い（値段）",
+    "partOfSpeech": "形容詞",
+    "example": "Cái này đắt quá!",
+    "exampleMeaning": "これは高すぎます！"
+  },
+  {
+    "text": "hôm nay",
+    "meaning": "今日",
+    "partOfSpeech": "名詞",
+    "example": "Hôm nay trời đẹp quá.",
+    "exampleMeaning": "今日はとても天気がいいです。"
+  },
+  {
+    "text": "về",
+    "meaning": "帰る／〜について",
+    "partOfSpeech": "動詞／前置詞",
+    "example": "Tôi về nhà lúc sáu giờ.",
+    "exampleMeaning": "私は6時に家に帰ります。"
+  },
+  {
+    "text": "khó",
+    "meaning": "難しい",
+    "partOfSpeech": "形容詞",
+    "example": "Bài tập này khó quá.",
+    "exampleMeaning": "この課題はとても難しいです。"
+  },
+  {
+    "text": "gọi",
+    "meaning": "呼ぶ／注文する／電話する",
+    "partOfSpeech": "動詞",
+    "example": "Tôi gọi món phở.",
+    "exampleMeaning": "私はフォーを注文します。"
+  },
+  {
+    "text": "cùng",
+    "meaning": "一緒に",
+    "partOfSpeech": "副詞",
+    "example": "Chúng ta cùng đi nhé.",
+    "exampleMeaning": "一緒に行きましょう。"
+  },
+  {
+    "text": "bao nhiêu",
+    "meaning": "いくら／どのくらい",
+    "partOfSpeech": "疑問詞",
+    "example": "Cái này bao nhiêu tiền?",
+    "exampleMeaning": "これはいくらですか？"
+  },
+  {
+    "text": "lạnh",
+    "meaning": "寒い／冷たい",
+    "partOfSpeech": "形容詞",
+    "example": "Hôm nay trời lạnh lắm.",
+    "exampleMeaning": "今日はとても寒いです。"
+  },
+  {
+    "text": "sau",
+    "meaning": "後／後ろ",
+    "partOfSpeech": "前置詞／名詞",
+    "example": "Tôi sẽ gặp bạn sau.",
+    "exampleMeaning": "後であなたに会います。"
+  },
+  {
+    "text": "nhớ",
+    "meaning": "覚えている／恋しく思う",
+    "partOfSpeech": "動詞",
+    "example": "Tôi nhớ bạn nhiều lắm.",
+    "exampleMeaning": "あなたがとても恋しいです。"
+  },
+  {
+    "text": "nữa",
+    "meaning": "もっと／さらに／また",
+    "partOfSpeech": "副詞",
+    "example": "Cho tôi một ly nữa.",
+    "exampleMeaning": "もう一杯ください。"
+  },
+  {
+    "text": "con",
+    "meaning": "子供／動物を数える助数詞",
+    "partOfSpeech": "名詞・助数詞",
+    "example": "Tôi có hai con mèo.",
+    "exampleMeaning": "私は猫を2匹飼っています。"
+  },
+  {
+    "text": "ghế",
+    "meaning": "椅子",
+    "partOfSpeech": "名詞",
+    "example": "Bạn ngồi lên ghế đi.",
+    "exampleMeaning": "椅子に座ってください。"
+  },
+  {
+    "text": "ngủ",
+    "meaning": "眠る",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn ngủ sớm tối nay.",
+    "exampleMeaning": "今夜は早く眠りたいです。"
+  },
+  {
+    "text": "chạy",
+    "meaning": "走る",
+    "partOfSpeech": "動詞",
+    "example": "Mỗi sáng tôi chạy bộ.",
+    "exampleMeaning": "毎朝私はジョギングをします。"
+  },
+  {
+    "text": "sớm",
+    "meaning": "早い・早く",
+    "partOfSpeech": "形容詞・副詞",
+    "example": "Hôm nay tôi dậy rất sớm.",
+    "exampleMeaning": "今日はとても早く起きました。"
+  },
+  {
+    "text": "gần",
+    "meaning": "近い",
+    "partOfSpeech": "形容詞・前置詞",
+    "example": "Khách sạn này gần biển.",
+    "exampleMeaning": "このホテルは海の近くです。"
+  },
+  {
+    "text": "luôn luôn",
+    "meaning": "いつも・常に",
+    "partOfSpeech": "副詞",
+    "example": "Cô ấy luôn luôn đúng giờ.",
+    "exampleMeaning": "彼女はいつも時間通りです。"
+  },
+  {
+    "text": "hoặc",
+    "meaning": "または・あるいは",
+    "partOfSpeech": "接続詞",
+    "example": "Bạn uống cà phê hoặc trà?",
+    "exampleMeaning": "コーヒーまたはお茶を飲みますか？"
+  },
+  {
+    "text": "sáu",
+    "meaning": "6（六）",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có sáu anh chị em.",
+    "exampleMeaning": "私は6人兄弟です。"
+  },
+  {
+    "text": "nấu",
+    "meaning": "料理する・炊く",
+    "partOfSpeech": "動詞",
+    "example": "Tối nay anh nấu cơm nhé.",
+    "exampleMeaning": "今夜はご飯を炊いてください。"
+  },
+  {
+    "text": "bàn",
+    "meaning": "テーブル・机",
+    "partOfSpeech": "名詞",
+    "example": "Cuốn sách ở trên bàn.",
+    "exampleMeaning": "本は机の上にあります。"
+  },
+  {
+    "text": "cửa",
+    "meaning": "ドア",
+    "partOfSpeech": "名詞",
+    "example": "Đóng cửa lại giúp tôi.",
+    "exampleMeaning": "ドアを閉めてください。"
+  },
+  {
+    "text": "viết",
+    "meaning": "書く",
+    "partOfSpeech": "動詞",
+    "example": "Tôi viết thư cho bạn.",
+    "exampleMeaning": "私はあなたに手紙を書きます。"
+  },
+  {
+    "text": "hỏi",
+    "meaning": "聞く・質問する",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có thể hỏi thầy giáo.",
+    "exampleMeaning": "先生に質問することができますよ。"
+  },
+  {
+    "text": "đợi",
+    "meaning": "待つ",
+    "partOfSpeech": "動詞",
+    "example": "Xin đợi một chút nhé.",
+    "exampleMeaning": "少し待ってください。"
+  },
+  {
+    "text": "dễ",
+    "meaning": "簡単な・易しい",
+    "partOfSpeech": "形容詞",
+    "example": "Bài tập này rất dễ.",
+    "exampleMeaning": "この練習問題はとても簡単です。"
+  },
+  {
+    "text": "sạch",
+    "meaning": "清潔な・きれいな",
+    "partOfSpeech": "形容詞",
+    "example": "Tay bạn sạch chưa?",
+    "exampleMeaning": "手はきれいになりましたか？"
+  },
+  {
+    "text": "thường",
+    "meaning": "いつも・普通に",
+    "partOfSpeech": "副詞",
+    "example": "Tôi thường ăn sáng lúc bảy giờ.",
+    "exampleMeaning": "私はいつも7時に朝食を食べます。"
+  },
+  {
+    "text": "đường",
+    "meaning": "道・道路",
+    "partOfSpeech": "名詞",
+    "example": "Đường đến trường không xa.",
+    "exampleMeaning": "学校までの道は遠くありません。"
+  },
+  {
+    "text": "nặng",
+    "meaning": "重い",
+    "partOfSpeech": "形容詞",
+    "example": "Cái va li này nặng quá, bạn ơi.",
+    "exampleMeaning": "このスーツケースはとても重いですよ。"
+  },
+  {
+    "text": "trái cây",
+    "meaning": "果物",
+    "partOfSpeech": "名詞",
+    "example": "Tôi thích ăn trái cây tươi.",
+    "exampleMeaning": "私は新鮮な果物を食べるのが好きです。"
+  },
+  {
+    "text": "mặc",
+    "meaning": "着る・身に着ける",
+    "partOfSpeech": "動詞",
+    "example": "Hôm nay tôi mặc áo trắng.",
+    "exampleMeaning": "今日私は白いシャツを着ています。"
+  },
+  {
+    "text": "vui lòng",
+    "meaning": "どうぞ・お願いします",
+    "partOfSpeech": "副詞",
+    "example": "Vui lòng chờ một chút.",
+    "exampleMeaning": "少々お待ちください。"
+  },
+  {
+    "text": "bệnh viện",
+    "meaning": "病院",
+    "partOfSpeech": "名詞",
+    "example": "Tôi đến bệnh viện khám bệnh.",
+    "exampleMeaning": "私は診察のために病院に行きます。"
+  },
+  {
+    "text": "nhanh chóng",
+    "meaning": "すばやく・迅速に",
+    "partOfSpeech": "副詞",
+    "example": "Anh ấy nhanh chóng giải quyết vấn đề.",
+    "exampleMeaning": "彼はすばやく問題を解決しました。"
+  },
+  {
+    "text": "mượn",
+    "meaning": "借りる",
+    "partOfSpeech": "動詞",
+    "example": "Tôi muốn mượn quyển sách này.",
+    "exampleMeaning": "私はこの本を借りたいです。"
+  },
+  {
+    "text": "bảy",
+    "meaning": "七・7",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có bảy quyển sách.",
+    "exampleMeaning": "私は本を7冊持っています。"
+  },
+  {
+    "text": "tuy nhiên",
+    "meaning": "しかしながら・それでも",
+    "partOfSpeech": "接続詞",
+    "example": "Trời mưa, tuy nhiên tôi vẫn đi.",
+    "exampleMeaning": "雨が降っていますが、それでも私は行きます。"
+  },
+  {
+    "text": "vừa",
+    "meaning": "ちょうど・ちょうどよい",
+    "partOfSpeech": "副詞",
+    "example": "Cái áo này vừa với tôi.",
+    "exampleMeaning": "このシャツは私にちょうど合います。"
+  },
+  {
+    "text": "điện thoại",
+    "meaning": "電話・スマートフォン",
+    "partOfSpeech": "名詞",
+    "example": "Tôi để quên điện thoại ở nhà.",
+    "exampleMeaning": "私は家に電話を忘れてきました。"
+  },
+  {
+    "text": "trả",
+    "meaning": "返す・支払う",
+    "partOfSpeech": "動詞",
+    "example": "Tôi trả tiền cho anh ấy.",
+    "exampleMeaning": "私は彼にお金を支払いました。"
+  },
+  {
+    "text": "mở",
+    "meaning": "開ける",
+    "partOfSpeech": "動詞",
+    "example": "Mở cửa sổ ra đi.",
+    "exampleMeaning": "窓を開けてください。"
+  },
+  {
+    "text": "đóng",
+    "meaning": "閉める",
+    "partOfSpeech": "動詞",
+    "example": "Đóng cửa lại đi, trời lạnh lắm.",
+    "exampleMeaning": "ドアを閉めてください、とても寒いです。"
+  },
+  {
+    "text": "gửi",
+    "meaning": "送る",
+    "partOfSpeech": "動詞",
+    "example": "Anh gửi email cho tôi nhé.",
+    "exampleMeaning": "私にメールを送ってください。"
+  },
+  {
+    "text": "tám",
+    "meaning": "8（八）",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có tám quyển sách.",
+    "exampleMeaning": "私は本を8冊持っています。"
+  },
+  {
+    "text": "nhanh nhẹn",
+    "meaning": "すばしっこい・機敏な",
+    "partOfSpeech": "形容詞",
+    "example": "Cậu bé đó rất nhanh nhẹn.",
+    "exampleMeaning": "あの男の子はとても機敏です。"
+  },
+  {
+    "text": "chăm chỉ",
+    "meaning": "勤勉な",
+    "partOfSpeech": "形容詞",
+    "example": "Anh ấy chăm chỉ làm việc mỗi ngày.",
+    "exampleMeaning": "彼は毎日勤勉に働いています。"
+  },
+  {
+    "text": "thông minh",
+    "meaning": "賢い",
+    "partOfSpeech": "形容詞",
+    "example": "Con gái tôi rất thông minh.",
+    "exampleMeaning": "私の娘はとても賢いです。"
+  },
+  {
+    "text": "khi",
+    "meaning": "〜のとき",
+    "partOfSpeech": "接続詞",
+    "example": "Khi tôi đến, anh ấy đã đi rồi.",
+    "exampleMeaning": "私が着いたとき、彼はもう行ってしまっていました。"
+  },
+  {
+    "text": "bếp",
+    "meaning": "キッチン・台所",
+    "partOfSpeech": "名詞",
+    "example": "Mẹ đang nấu ăn trong bếp.",
+    "exampleMeaning": "お母さんがキッチンで料理しています。"
+  },
+  {
+    "text": "trời",
+    "meaning": "空・天気",
+    "partOfSpeech": "名詞",
+    "example": "Trời hôm nay đẹp quá!",
+    "exampleMeaning": "今日の空はとても綺麗です！"
+  },
+  {
+    "text": "mang",
+    "meaning": "持っていく・運ぶ",
+    "partOfSpeech": "動詞",
+    "example": "Bạn có thể mang cái này cho tôi không?",
+    "exampleMeaning": "これを私のために持ってきてもらえますか？"
+  },
+  {
+    "text": "rộng",
+    "meaning": "広い",
+    "partOfSpeech": "形容詞",
+    "example": "Căn phòng này rất rộng.",
+    "exampleMeaning": "この部屋はとても広いです。"
+  },
+  {
+    "text": "chín",
+    "meaning": "九・９",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có chín cuốn sách.",
+    "exampleMeaning": "私は本を9冊持っています。"
+  },
+  {
+    "text": "thật",
+    "meaning": "本当に・実際に",
+    "partOfSpeech": "副詞",
+    "example": "Cái này thật ngon!",
+    "exampleMeaning": "これは本当においしい！"
+  },
+  {
+    "text": "quên",
+    "meaning": "忘れる",
+    "partOfSpeech": "動詞",
+    "example": "Tôi quên mang ví rồi.",
+    "exampleMeaning": "財布を持ってくるのを忘れました。"
+  },
+  {
+    "text": "cũ",
+    "meaning": "古い・使い古した",
+    "partOfSpeech": "形容詞",
+    "example": "Chiếc xe này rất cũ.",
+    "exampleMeaning": "この車はとても古いです。"
+  },
+  {
+    "text": "máy bay",
+    "meaning": "飛行機",
+    "partOfSpeech": "名詞",
+    "example": "Tôi đi Nhật bằng máy bay.",
+    "exampleMeaning": "私は飛行機で日本に行きます。"
+  },
+  {
+    "text": "bao giờ",
+    "meaning": "いつ（疑問）",
+    "partOfSpeech": "副詞",
+    "example": "Bao giờ bạn về nhà?",
+    "exampleMeaning": "あなたはいつ家に帰りますか？"
+  },
+  {
+    "text": "nếu như",
+    "meaning": "もし〜ならば",
+    "partOfSpeech": "接続詞",
+    "example": "Nếu như trời mưa, tôi ở nhà.",
+    "exampleMeaning": "もし雨が降ったら、私は家にいます。"
+  },
+  {
+    "text": "chợ búa",
+    "meaning": "買い物（市場での）",
+    "partOfSpeech": "名詞",
+    "example": "Mẹ tôi đi chợ búa mỗi buổi sáng.",
+    "exampleMeaning": "私の母は毎朝買い物に行きます。"
+  },
+  {
+    "text": "quần áo",
+    "meaning": "服・衣類",
+    "partOfSpeech": "名詞",
+    "example": "Tôi cần mua quần áo mới.",
+    "exampleMeaning": "私は新しい服を買う必要があります。"
+  },
+  {
+    "text": "nghĩ",
+    "meaning": "思う・考える",
+    "partOfSpeech": "動詞",
+    "example": "Tôi nghĩ anh ấy đúng.",
+    "exampleMeaning": "私は彼が正しいと思います。"
+  },
+  {
+    "text": "gặp gỡ",
+    "meaning": "会う・出会う",
+    "partOfSpeech": "動詞",
+    "example": "Chúng tôi gặp gỡ nhau ở công viên.",
+    "exampleMeaning": "私たちは公園で出会いました。"
+  },
+  {
+    "text": "vắng",
+    "meaning": "人がいない・静かな",
+    "partOfSpeech": "形容詞",
+    "example": "Đường phố rất vắng vào buổi tối.",
+    "exampleMeaning": "夜は道がとても人気がありません。"
+  },
+  {
+    "text": "đắng",
+    "meaning": "苦い",
+    "partOfSpeech": "形容詞",
+    "example": "Cà phê này đắng quá.",
+    "exampleMeaning": "このコーヒーはとても苦いです。"
+  },
+  {
+    "text": "ngay",
+    "meaning": "すぐに・まっすぐ",
+    "partOfSpeech": "副詞",
+    "example": "Tôi sẽ đến ngay.",
+    "exampleMeaning": "すぐに行きます。"
+  },
+  {
+    "text": "mười",
+    "meaning": "10（十）",
+    "partOfSpeech": "数詞",
+    "example": "Tôi có mười quyển sách.",
+    "exampleMeaning": "私は本を10冊持っています。"
+  },
+  {
+    "text": "mặc dù",
+    "meaning": "〜にもかかわらず",
+    "partOfSpeech": "接続詞",
+    "example": "Mặc dù trời mưa, tôi vẫn đi bộ.",
+    "exampleMeaning": "雨にもかかわらず、私は歩いて行きました。"
+  },
+  {
+    "text": "giữa",
+    "meaning": "〜の間・中央に",
+    "partOfSpeech": "前置詞",
+    "example": "Ngân hàng nằm giữa hai tòa nhà.",
+    "exampleMeaning": "銀行は2つのビルの間にあります。"
+  },
+  {
+    "text": "trả lời",
+    "meaning": "答える・返答する",
+    "partOfSpeech": "動詞",
+    "example": "Anh ấy trả lời câu hỏi rất tốt.",
+    "exampleMeaning": "彼は質問にとても上手く答えた。"
+  },
+  {
+    "text": "chuẩn bị",
+    "meaning": "準備する",
+    "partOfSpeech": "動詞",
+    "example": "Chúng ta cần chuẩn bị trước khi đi.",
+    "exampleMeaning": "出発前に準備が必要だ。"
+  },
+  {
+    "text": "nghỉ",
+    "meaning": "休む",
+    "partOfSpeech": "動詞",
+    "example": "Anh ơi, anh có muốn nghỉ một chút không?",
+    "exampleMeaning": "少し休みたいですか？"
+  },
+  {
+    "text": "gia đình",
+    "meaning": "家族",
+    "partOfSpeech": "名詞",
+    "example": "Gia đình tôi có bốn người.",
+    "exampleMeaning": "私の家族は4人います。"
+  },
+  {
+    "text": "bạn bè",
+    "meaning": "友達",
+    "partOfSpeech": "名詞",
+    "example": "Tôi thích đi cà phê với bạn bè.",
+    "exampleMeaning": "友達とカフェに行くのが好きだ。"
+  },
+  {
+    "text": "công việc",
+    "meaning": "仕事",
+    "partOfSpeech": "名詞",
+    "example": "Công việc này rất thú vị.",
+    "exampleMeaning": "この仕事はとても面白い。"
+  },
+  {
+    "text": "thú vị",
+    "meaning": "面白い・興味深い",
+    "partOfSpeech": "形容詞",
+    "example": "Cuốn sách này rất thú vị.",
+    "exampleMeaning": "この本はとても面白い。"
+  },
+  {
+    "text": "quan trọng",
+    "meaning": "重要な",
+    "partOfSpeech": "形容詞",
+    "example": "Sức khỏe rất quan trọng với mọi người.",
+    "exampleMeaning": "健康はすべての人にとってとても重要だ。"
+  },
+  {
+    "text": "yên tĩnh",
+    "meaning": "静かな",
+    "partOfSpeech": "形容詞",
+    "example": "Tôi thích những nơi yên tĩnh.",
+    "exampleMeaning": "私は静かな場所が好きだ。"
+  },
+  {
+    "text": "thỉnh thoảng",
+    "meaning": "時々・たまに",
+    "partOfSpeech": "副詞",
+    "example": "Thỉnh thoảng tôi đi xem phim một mình.",
+    "exampleMeaning": "時々一人で映画を見に行く。"
+  },
+  {
+    "text": "yêu",
+    "meaning": "愛する・好きだ",
+    "partOfSpeech": "動詞",
+    "example": "Tôi yêu gia đình của tôi.",
+    "exampleMeaning": "私は自分の家族を愛しています。"
+  },
+  {
+    "text": "hạnh phúc",
+    "meaning": "幸せ・幸福",
+    "partOfSpeech": "形容詞",
+    "example": "Gia đình tôi rất hạnh phúc.",
+    "exampleMeaning": "私の家族はとても幸せです。"
+  },
+  {
+    "text": "tại sao",
+    "meaning": "なぜ・どうして",
+    "partOfSpeech": "副詞",
+    "example": "Tại sao bạn không ăn cơm?",
+    "exampleMeaning": "なぜあなたはご飯を食べないのですか？"
+  },
+  {
+    "text": "cuộc sống",
+    "meaning": "生活・人生",
+    "partOfSpeech": "名詞",
+    "example": "Cuộc sống ở Việt Nam rất thú vị.",
+    "exampleMeaning": "ベトナムでの生活はとても面白いです。"
+  },
+  {
+    "text": "đồng ý",
+    "meaning": "同意する・賛成する",
+    "partOfSpeech": "動詞",
+    "example": "Tôi đồng ý với ý kiến của bạn.",
+    "exampleMeaning": "私はあなたの意見に賛成です。"
+  },
+  {
+    "text": "vội",
+    "meaning": "急いでいる・急ぐ",
+    "partOfSpeech": "形容詞／動詞",
+    "example": "Tôi đang vội, không thể nói chuyện.",
+    "exampleMeaning": "急いでいるので、話せません。"
+  },
+  {
+    "text": "thời tiết",
+    "meaning": "天気",
+    "partOfSpeech": "名詞",
+    "example": "Thời tiết hôm nay rất đẹp.",
+    "exampleMeaning": "今日の天気はとても良いです。"
+  },
+  {
+    "text": "vẫn",
+    "meaning": "まだ・依然として",
+    "partOfSpeech": "副詞",
+    "example": "Tôi vẫn chưa hiểu bài học này.",
+    "exampleMeaning": "私はまだこのレッスンを理解していません。"
+  },
+  {
+    "text": "chợ nổi",
+    "meaning": "水上マーケット",
+    "partOfSpeech": "名詞",
+    "example": "Chợ nổi ở miền Tây rất nổi tiếng.",
+    "exampleMeaning": "南部の水上マーケットはとても有名です。"
+  },
+  {
+    "text": "sân bay",
+    "meaning": "空港",
+    "partOfSpeech": "名詞",
+    "example": "Tôi đến sân bay lúc bảy giờ sáng.",
+    "exampleMeaning": "私は朝7時に空港に着きました。"
+  },
+  {
+    "text": "nhà hàng",
+    "meaning": "レストラン",
+    "partOfSpeech": "名詞",
+    "example": "Nhà hàng này phục vụ rất tốt.",
+    "exampleMeaning": "このレストランはサービスがとても良いです。"
+  },
+  {
+    "text": "khách sạn",
+    "meaning": "ホテル",
+    "partOfSpeech": "名詞",
+    "example": "Khách sạn này có hồ bơi rất đẹp.",
+    "exampleMeaning": "このホテルにはとても美しいプールがあります。"
+  },
+  {
+    "text": "học",
+    "meaning": "勉強する・学ぶ",
+    "partOfSpeech": "動詞",
+    "example": "Tôi học tiếng Việt mỗi ngày.",
+    "exampleMeaning": "私は毎日ベトナム語を勉強します。"
+  },
+  {
+    "text": "chơi",
+    "meaning": "遊ぶ",
+    "partOfSpeech": "動詞",
+    "example": "Cuối tuần tôi thường chơi thể thao.",
+    "exampleMeaning": "週末は普段スポーツをして遊びます。"
+  },
+  {
+    "text": "dạy",
+    "meaning": "教える",
+    "partOfSpeech": "動詞",
+    "example": "Mẹ tôi dạy tôi nấu ăn.",
+    "exampleMeaning": "母は私に料理を教えてくれました。"
+  },
+  {
+    "text": "vui vẻ",
+    "meaning": "陽気な・楽しい",
+    "partOfSpeech": "形容詞",
+    "example": "Cô ấy luôn vui vẻ với mọi người.",
+    "exampleMeaning": "彼女はいつも皆に対して陽気です。"
+  },
+  {
+    "text": "khó khăn",
+    "meaning": "困難な",
+    "partOfSpeech": "形容詞",
+    "example": "Bài tập này rất khó khăn với tôi.",
+    "exampleMeaning": "この課題は私にとってとても困難です。"
+  },
+  {
+    "text": "bình thường",
+    "meaning": "普通の・普段通り",
+    "partOfSpeech": "形容詞",
+    "example": "Mọi thứ vẫn bình thường như cũ.",
+    "exampleMeaning": "すべては以前と変わらず普通です。"
+  }
+]

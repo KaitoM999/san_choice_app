@@ -1,18 +1,31 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+// 💡 共通背景と新しいモデルをインポート
+import '../widgets/snowy_background.dart';
+import '../models/word_model.dart';
 import '../models/quiz_model.dart';
+import '../models/language_config.dart'; // 💡 ルールブックをインポート
 import 'result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   final int blockNumber; 
   final bool isVietToJpn; 
+  final LanguageConfig currentLanguage; // 💡 選択中の言語を受け取る
 
-  const QuizScreen({super.key, required this.blockNumber, required this.isVietToJpn});
+  const QuizScreen({
+    super.key, 
+    required this.blockNumber, 
+    required this.isVietToJpn,
+    required this.currentLanguage, // 💡 追加
+  });
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -21,10 +34,8 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateMixin {
   final FlutterTts _tts = FlutterTts(); 
   
-  // 💡 FutureBuilderをやめ、直接状態（State）としてデータを保持する
   bool _isLoading = true;
   List<Quiz> _quizList = [];
-  List<List<int>> _shuffledIndices = [];
   
   int _currentIndex = 0; 
   bool _isAnswered = false; 
@@ -38,10 +49,18 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
   late AnimationController _floatController; 
   late Animation<double> _floatAnimation; 
 
+  InterstitialAd? _interstitialAd;
+  bool _isInterstitialAdReady = false;
+
+  final String interstitialAdUnitId = Platform.isAndroid
+      ? 'ca-app-pub-3940256099942544/1033173712'
+      : 'ca-app-pub-3940256099942544/4411468910';
+
   @override
   void initState() {
     super.initState();
-    _tts.setLanguage("vi-VN");
+    // 💡 受け取った言語のTTSコードをセット！
+    _tts.setLanguage(widget.currentLanguage.ttsCode);
     _tts.setSpeechRate(0.5);
     _isFlipped = false; 
     _pickConsideringImage();
@@ -55,39 +74,110 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
       CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
     );
 
-    // 💡 画面起動時に確実にデータを読み込み＆シャッフルする
     _initQuizData();
+    _loadInterstitialAd();
+  }
+
+  void _loadInterstitialAd() {
+    InterstitialAd.load(
+      adUnitId: interstitialAdUnitId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          _interstitialAd = ad;
+          _isInterstitialAdReady = true;
+
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              ad.dispose(); 
+              _navigateToResult(); 
+            },
+            onAdFailedToShowFullScreenContent: (ad, error) {
+              ad.dispose();
+              _navigateToResult(); 
+            },
+          );
+        },
+        onAdFailedToLoad: (err) {
+          debugPrint('⚠️ 全画面広告の読み込み失敗: ${err.message}');
+          _isInterstitialAdReady = false;
+        },
+      ),
+    );
   }
 
   @override
   void dispose() {
+    _interstitialAd?.dispose(); 
     _floatController.dispose();
     _tts.stop(); 
     super.dispose();
   }
 
-  // 💡 データを読み込み、その場で完全にシャッフルしてStateに保存するメソッド
+  Future<void> _navigateToResult() async {
+    _tts.stop();
+    final currentScore = _score;
+    final currentTotal = _quizList.length;
+
+    await _saveScore();
+    
+    if (!mounted) return;
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(
+          score: currentScore,
+          totalQuestions: currentTotal,
+        ),
+      ),
+    );
+  }
+
   Future<void> _initQuizData() async {
-    final String response = await rootBundle.loadString('assets/data/quiz_data.json');
+    // 💡 選ばれている言語のJSONファイルを読み込む！
+    final String response = await rootBundle.loadString('assets/data/${widget.currentLanguage.jsonFileName}');
     final List<dynamic> data = json.decode(response);
-    List<Quiz> quizzes = data.map((json) => Quiz.fromJson(json)).toList();
+    List<Word> allWords = data.map((json) => Word.fromJson(json)).toList();
     
     int start = (widget.blockNumber - 1) * 6;
-    int end = (start + 6 > quizzes.length) ? quizzes.length : start + 6;
-    _quizList = quizzes.sublist(start, end);
+    int end = (start + 6 > allWords.length) ? allWords.length : start + 6;
+    List<Word> targetWords = allWords.sublist(start, end);
 
-    // 💡 現在時刻を「乱数の種」にすることで、絶対に毎回違うパターンにする
     final random = math.Random(DateTime.now().millisecondsSinceEpoch);
-    
-    _shuffledIndices = _quizList.map((quiz) {
-      List<int> indices = List.generate(quiz.options.length, (i) => i);
-      indices.shuffle(random); 
-      return indices;
-    }).toList();
+    List<Quiz> generatedQuizzes = [];
 
-    // 読み込みとシャッフルが完了したら、画面を描画し直す
+    for (var targetWord in targetWords) {
+      List<Word> samePosWords = allWords.where((w) => 
+        w.partOfSpeech == targetWord.partOfSpeech && w.text != targetWord.text
+      ).toList();
+
+      samePosWords.shuffle(random);
+      List<Word> dummies = [];
+      
+      if (samePosWords.length >= 2) {
+        dummies = samePosWords.take(2).toList();
+      } else {
+        List<Word> anyOtherWords = allWords.where((w) => w.text != targetWord.text).toList();
+        anyOtherWords.shuffle(random);
+        dummies = anyOtherWords.take(2).toList();
+      }
+
+      List<Word> options = [targetWord, ...dummies];
+      options.shuffle(random);
+
+      int correctIndex = options.indexOf(targetWord);
+
+      generatedQuizzes.add(Quiz(
+        question: targetWord,
+        options: options,
+        correctIndex: correctIndex,
+      ));
+    }
+
     if (mounted) {
       setState(() {
+        _quizList = generatedQuizzes;
         _isLoading = false;
       });
     }
@@ -129,7 +219,8 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
 
   Future<void> _saveScore() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('score_${widget.blockNumber}', _score);
+    // 💡 言語ごとにスコアを分けて保存 (例: score_vi_1)
+    await prefs.setInt('score_${widget.currentLanguage.id}_${widget.blockNumber}', _score);
   }
 
   Widget _buildCharacter() {
@@ -163,7 +254,6 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    // 💡 読み込み中（シャッフル中）はローディングアイコンを出す
     if (_isLoading) {
       return const Scaffold(
         backgroundColor: Color(0xFF8B0000),
@@ -172,26 +262,20 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     }
 
     final quiz = _quizList[_currentIndex];
-    final currentShuffledIndices = _shuffledIndices[_currentIndex];
 
     final bool isCorrect = _isAnswered && _selectedIndex == quiz.correctIndex;
     final String displayQuestionText = widget.isVietToJpn 
         ? quiz.question.text 
-        : quiz.options[quiz.correctIndex].meaning;
-    final String questionTtsLang = widget.isVietToJpn ? "vi-VN" : "ja-JP";
+        : quiz.question.meaning; 
+    
+    // 💡 ベトナム語固定から、現在の言語のTTSコードに変更
+    final String questionTtsLang = widget.isVietToJpn ? widget.currentLanguage.ttsCode : "ja-JP";
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 1.2,
-            colors: [Color(0xFFE53935), Color(0xFF8B0000)],
-          ),
-        ),
+      backgroundColor: const Color(0xFF8B0000),
+      body: SnowyBackground(
         child: Stack(
           children: [
-            ..._buildSnowflakes(),
             if (!_isAnswered) _buildCharacter(),
             SafeArea(
               child: Column(
@@ -227,15 +311,12 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                   Expanded(
                     flex: 5,
                     child: Column(
-                      children: List.generate(currentShuffledIndices.length, (i) {
-                        
-                        final originalIndex = currentShuffledIndices[i];
-                        
-                        final isCorrectBtn = originalIndex == quiz.correctIndex;
-                        final isSelectedBtn = originalIndex == _selectedIndex;
+                      children: List.generate(quiz.options.length, (index) {
+                        final isCorrectBtn = index == quiz.correctIndex;
+                        final isSelectedBtn = index == _selectedIndex;
                         final String displayOptionText = widget.isVietToJpn
-                            ? quiz.options[originalIndex].meaning 
-                            : quiz.options[originalIndex].text;
+                            ? quiz.options[index].meaning 
+                            : quiz.options[index].text;
 
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
@@ -254,17 +335,18 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                               onPressed: () {
                                 if (_isAnswered) return;
                                 setState(() {
-                                  _selectedIndex = originalIndex;
+                                  _selectedIndex = index;
                                   _isAnswered = true;
-                                  if (originalIndex == quiz.correctIndex) {
+                                  if (index == quiz.correctIndex) {
                                     _score++;
                                     _setReactionImage(true);
                                   } else {
                                     _setReactionImage(false);
                                   }
                                 });
-                                _tts.setLanguage("vi-VN"); 
-                                _tts.speak(quiz.options[originalIndex].text);
+                                // 💡 ここも動的言語に
+                                _tts.setLanguage(widget.currentLanguage.ttsCode); 
+                                _tts.speak(quiz.options[index].text);
                               },
                               child: Text(
                                 displayOptionText,
@@ -285,7 +367,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
               Positioned.fill(child: Container(color: Colors.black54)), 
               if (isCorrect) ..._buildStars(),
               _buildCharacter(),
-              SafeArea(child: _buildFeedbackModal(quiz, isCorrect, currentShuffledIndices)),
+              SafeArea(child: _buildFeedbackModal(quiz, isCorrect)),
             ],
           ],
         ),
@@ -313,7 +395,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     );
   }
 
-  Widget _buildFeedbackModal(Quiz quiz, bool isCorrect, List<int> shuffledIndices) {
+  Widget _buildFeedbackModal(Quiz quiz, bool isCorrect) {
     return Column(
       children: [
         const SizedBox(height: 40),
@@ -340,13 +422,12 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                 const Text('【 解説 】', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: shuffledIndices.length,
-                    itemBuilder: (context, i) {
-                      final index = shuffledIndices[i];
+                    itemCount: quiz.options.length,
+                    itemBuilder: (context, index) {
                       final word = quiz.options[index];
                       
                       return Container(
-                        margin: const EdgeInsets.only(bottom: 10),
+                        margin: const EdgeInsets.only(bottom: 12),
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: index == quiz.correctIndex ? Colors.green.withOpacity(0.1) : Colors.grey[100],
@@ -357,18 +438,80 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(word.text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                                Expanded(
+                                  child: Wrap(
+                                    crossAxisAlignment: WrapCrossAlignment.center,
+                                    spacing: 8,
+                                    children: [
+                                      Text(word.text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black87)),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: Colors.blueGrey.withOpacity(0.2),
+                                          borderRadius: BorderRadius.circular(6),
+                                        ),
+                                        child: Text(
+                                          word.partOfSpeech, 
+                                          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 7, 35, 48)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                                 IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
-                                    _tts.setLanguage("vi-VN");
+                                    // 💡 ここも動的言語に
+                                    _tts.setLanguage(widget.currentLanguage.ttsCode);
                                     _tts.speak(word.text);
                                   },
-                                  icon: const Icon(Icons.volume_up, size: 22),
+                                  icon: const Icon(Icons.volume_up, size: 26, color: Colors.blueAccent),
                                 ),
                               ],
                             ),
-                            Text('意味: ${word.meaning}', style: const TextStyle(fontSize: 18)),
+                            const SizedBox(height: 4),
+                            Text('意味: ${word.meaning}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87)),
+                            
+                            const Divider(height: 16, thickness: 1),
+                            
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('例文:', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black87)),
+                                const SizedBox(width: 6),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Text(word.example, style: const TextStyle(fontSize: 16, color: Colors.black87)),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          IconButton(
+                                            padding: EdgeInsets.zero,
+                                            constraints: const BoxConstraints(),
+                                            onPressed: () {
+                                              // 💡 ここも動的言語に
+                                              _tts.setLanguage(widget.currentLanguage.ttsCode);
+                                              _tts.speak(word.example);
+                                            },
+                                            icon: const Icon(Icons.volume_up, size: 20, color: Colors.green),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Text(word.exampleMeaning, style: const TextStyle(fontSize: 16, color: Colors.black87)),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       );
@@ -390,25 +533,11 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
                           _pickConsideringImage();
                         });
                       } else {
-                        _tts.stop();
-                        final navigator = Navigator.of(context); 
-                        final currentScore = _score;
-                        final currentTotal = _quizList.length;
-
-                        await _saveScore();
-                        
-                        if (!context.mounted) return;
-                        await Future.delayed(const Duration(milliseconds: 200));
-                        if (!context.mounted) return;
-
-                        navigator.pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => ResultScreen(
-                              score: currentScore,
-                              totalQuestions: currentTotal,
-                            ),
-                          ),
-                        );
+                        if (_isInterstitialAdReady && _interstitialAd != null) {
+                          _interstitialAd!.show();
+                        } else {
+                          await _navigateToResult();
+                        }
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -430,8 +559,6 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
     );
   }
 
-  List<Widget> _buildSnowflakes() => [_p(top: 100, left: 30, size: 40), _p(top: 250, right: 40, size: 60, opacity: 0.1), _p(bottom: 100, left: 20, size: 50)];
-  Widget _p({double? top, double? left, double? right, double? bottom, required double size, double opacity = 0.3}) => Positioned(top: top, left: left, right: right, bottom: bottom, child: Icon(Icons.ac_unit, color: Colors.white.withOpacity(opacity), size: size));
   List<Widget> _buildStars() => [_pStar(top: 80, left: 50, size: 30), _pStar(top: 150, right: 60, size: 45), _pStar(bottom: 200, left: 80, size: 35), _pStar(bottom: 300, right: 40, size: 50)];
   Widget _pStar({double? top, double? left, double? right, double? bottom, required double size}) => Positioned(top: top, left: left, right: right, bottom: bottom, child: Icon(Icons.star, color: Colors.amberAccent, size: size));
 }

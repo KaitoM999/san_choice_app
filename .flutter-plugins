@@ -1,5 +1,6 @@
 # This is a generated file; do not edit or check into version control.
 flutter_tts=/Users/morikaido/.pub-cache/hosted/pub.dev/flutter_tts-4.0.2/
+google_mobile_ads=/Users/morikaido/.pub-cache/hosted/pub.dev/google_mobile_ads-5.2.0/
 path_provider=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider-2.1.4/
 path_provider_android=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_android-2.2.4/
 path_provider_foundation=/Users/morikaido/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.1/
@@ -11,3 +12,6 @@ shared_preferences_foundation=/Users/morikaido/.pub-cache/hosted/pub.dev/shared_
 shared_preferences_linux=/Users/morikaido/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.4.1/
 shared_preferences_web=/Users/morikaido/.pub-cache/hosted/pub.dev/shared_preferences_web-2.4.1/
 shared_preferences_windows=/Users/morikaido/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.4.1/
+webview_flutter=/Users/morikaido/.pub-cache/hosted/pub.dev/webview_flutter-4.8.0/
+webview_flutter_android=/Users/morikaido/.pub-cache/hosted/pub.dev/webview_flutter_android-3.16.3/
+webview_flutter_wkwebview=/Users/morikaido/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.14.0/
