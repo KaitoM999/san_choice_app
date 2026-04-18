@@ -3,11 +3,15 @@ description: 新機能の追加やドキュメント更新などの作業用
 title: "[Task]: "
 labels: ["enhancement"]
 body:
-  - type: markdown
+  - type: textarea   # 💡 markdown から textarea に変更
+    id: summary      # 💡 IDを適当につける
     attributes:
-      value: |
-        ## 📝 作業の概要
-        何を、なぜ変更するのかを簡潔に書いてください。
+      label: 📝 作業の概要  # 💡 ラベルとして表示
+      description: 何を、なぜ変更するのかを簡潔に書いてください。 # 💡 補足説明
+      placeholder: 例：character_intro_screenの設定を反映させるため
+    validations:
+      required: true # 💡 必須入力にする場合はこれを入れる
+      
   - type: checkboxes
     id: checklist
     attributes:
