@@ -21,3 +21,4 @@ android/app/build/
 
 # Logs
 *.log
+build/
