@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		wvlBtmrf2fj8WDz6hJtz8JJB1m0=
+		4lTzJdZJlmFsl1o65oqVpX4JBlI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		5iJnbzgDjIlXa2bzZOC33NjKhI0=
+		kqWV1koZ0CVBUUi5nh9EPm61doM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		NdttNNo0c/+efeXwquzRjpuq+0o=
+		Onc+6kgKvSq4CFaipaUuBWw/6GA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		fS5bFn2J61YXwwgeubRP+pWGPxQ=
+		l6henbtqeAugYW2BpTM+fWVJMnk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -76,17 +76,25 @@
 		<data>
 		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/data/quiz_data_new.json</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_fr.json</key>
 		<data>
-		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+		wp/0FymQvQeiB+rRRGJ8EG7yUfs=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_ko.json</key>
+		<data>
+		568otixdsFAVIjPSIFIX6kxuaGw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_ru.json</key>
+		<data>
+		rzHW6xeSZQkjTE9yuMqUquHnzDs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_vi.json</key>
 		<data>
-		Ei/Vb/4xmBVt9WzSuDPEXcaIlLA=
+		KtbneOa0JxI+6A2Tm8KspEfWZMQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_zh.json</key>
 		<data>
-		edukFW4Y3xWszL659nKO2r85eeo=
+		KtbneOa0JxI+6A2Tm8KspEfWZMQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/app_icon.png</key>
 		<data>
@@ -485,7 +493,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fTG/1ElBU2P/2ZM1XQCw7mlW2CIl/xqRaCSOMm8cGTM=
+			ijbb4InexRRH/VL1Tr8uYtUBjPsXqNnhJkQHDujnCSI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -499,21 +507,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0bZlKMaAhKWifOF+PEDS+jMJ4zek5K9FPFagbnsRnqE=
+			sY37aF+3km96ORedG+/kZ9bJHfHnIvSH7RLRi2U4vD0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1OvGoRtvdiOZX404s+ORghkz/7JeFTM6T6kOKyg+Q7E=
+			jmwxE8xNIrwyGlTZvdRYLAqt4kt6DEzvsiUzDW4ECf0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lAkGXkM09b78HTWr+OkQB/vG9hU/xXbYuRE9pSA2Dmk=
+			9mhKHYCTj7Nv6GXwxJfKi/qljvA9Yd7l+SiSVfFX8oA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -537,25 +545,39 @@
 			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/data/quiz_data_new.json</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_fr.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			BT1dF0tRpNWfPlDN5v0bdT2mSX0yx7tVzIIlHO+H6Z8=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_ko.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AXPsNNO5ifUba0lrz2j/1qyVnMSmAucWT9eWoqxtYUU=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_ru.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Yrm2mDftA1GxnAO+yNie24RFRrEnkjpzXCmAQ7qzOuY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_vi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UsK/f86VmKmVNoNKe2of5sEx8lfrK4Cx5TAxI0y12cA=
+			1G0M4+aYpJVxYRnYctWZFMditLW2E3swe5jGabhBcSg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/data/word_data_zh.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ss0yuFIarnjxtJtLG87nyy0M1E15vyx60mtPt9YF0SA=
+			1G0M4+aYpJVxYRnYctWZFMditLW2E3swe5jGabhBcSg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/app_icon.png</key>

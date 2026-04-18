@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		NdttNNo0c/+efeXwquzRjpuq+0o=
+		Onc+6kgKvSq4CFaipaUuBWw/6GA=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		fS5bFn2J61YXwwgeubRP+pWGPxQ=
+		l6henbtqeAugYW2BpTM+fWVJMnk=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -28,17 +28,25 @@
 		<data>
 		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
 		</data>
-		<key>flutter_assets/assets/data/quiz_data_new.json</key>
+		<key>flutter_assets/assets/data/word_data_fr.json</key>
 		<data>
-		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+		wp/0FymQvQeiB+rRRGJ8EG7yUfs=
+		</data>
+		<key>flutter_assets/assets/data/word_data_ko.json</key>
+		<data>
+		568otixdsFAVIjPSIFIX6kxuaGw=
+		</data>
+		<key>flutter_assets/assets/data/word_data_ru.json</key>
+		<data>
+		rzHW6xeSZQkjTE9yuMqUquHnzDs=
 		</data>
 		<key>flutter_assets/assets/data/word_data_vi.json</key>
 		<data>
-		Ei/Vb/4xmBVt9WzSuDPEXcaIlLA=
+		KtbneOa0JxI+6A2Tm8KspEfWZMQ=
 		</data>
 		<key>flutter_assets/assets/data/word_data_zh.json</key>
 		<data>
-		edukFW4Y3xWszL659nKO2r85eeo=
+		KtbneOa0JxI+6A2Tm8KspEfWZMQ=
 		</data>
 		<key>flutter_assets/assets/images/.DS_Store</key>
 		<data>
@@ -175,14 +183,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1OvGoRtvdiOZX404s+ORghkz/7JeFTM6T6kOKyg+Q7E=
+			jmwxE8xNIrwyGlTZvdRYLAqt4kt6DEzvsiUzDW4ECf0=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lAkGXkM09b78HTWr+OkQB/vG9hU/xXbYuRE9pSA2Dmk=
+			9mhKHYCTj7Nv6GXwxJfKi/qljvA9Yd7l+SiSVfFX8oA=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -206,25 +214,39 @@
 			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/data/quiz_data_new.json</key>
+		<key>flutter_assets/assets/data/word_data_fr.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			BT1dF0tRpNWfPlDN5v0bdT2mSX0yx7tVzIIlHO+H6Z8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/data/word_data_ko.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AXPsNNO5ifUba0lrz2j/1qyVnMSmAucWT9eWoqxtYUU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/data/word_data_ru.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Yrm2mDftA1GxnAO+yNie24RFRrEnkjpzXCmAQ7qzOuY=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/data/word_data_vi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UsK/f86VmKmVNoNKe2of5sEx8lfrK4Cx5TAxI0y12cA=
+			1G0M4+aYpJVxYRnYctWZFMditLW2E3swe5jGabhBcSg=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/data/word_data_zh.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ss0yuFIarnjxtJtLG87nyy0M1E15vyx60mtPt9YF0SA=
+			1G0M4+aYpJVxYRnYctWZFMditLW2E3swe5jGabhBcSg=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/app_icon.png</key>
