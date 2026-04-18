@@ -1,41 +1,43 @@
 name: Flutter CI
 
-# 💡 どのタイミングで自動テストを動かすかの設定
 on:
   push:
-    branches: [ main ] # mainブランチにプッシュされた時
+    branches: [ main ]
   pull_request:
-    branches: [ main ] # mainブランチに向けてプルリクエストが作られた時
+    branches: [ main ]
 
 jobs:
   test:
-    # 💡 最新のUbuntu（Linux）環境を使ってテストを実行
     runs-on: ubuntu-latest
 
     steps:
-      # 1. サーバー上にあなたのソースコードをコピーする
+      # 1. コードをチェックアウト
       - uses: actions/checkout@v4
 
-      # 2. Android関連のビルド等に必要なJava環境を整える
-      - uses: actions/setup-java@v3
+      # 2. Javaのセットアップ（バージョンをv4に上げてNode.js 24警告を解消）
+      - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # 3. Flutterを使えるようにセットアップする
+      # 3. Flutterのセットアップ
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          cache: true # 💡 2回目以降、パッケージのダウンロードを速くする設定
+          cache: false # 💡 一旦キャッシュをオフにして、まっさらな状態でテストする
 
-      # 4. 必要なパッケージ（google_fonts等）をインストールする
+      # 4. パッケージ取得
       - name: Install dependencies
         run: flutter pub get
 
-      # 5. コードが綺麗に書かれているか（静的解析）チェックする
+      # 5. 【重要】古いビルドゴミを消去する
+      - name: Clean build
+        run: flutter clean
+
+      # 6. 静的解析（ここでエラーが出るならコード自体に文法ミスがあります）
       - name: Analyze code
         run: flutter analyze
 
-      # 6. 【最重要】作成した20個のテストを一斉に実行する
+      # 7. テスト実行
       - name: Run tests
         run: flutter test
