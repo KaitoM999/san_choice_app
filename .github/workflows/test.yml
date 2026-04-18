@@ -2,9 +2,9 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]  # 💡 developに直接pushした時も走る
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]  # 💡 main または develop へのPR作成時に走る
 
 jobs:
   test:
