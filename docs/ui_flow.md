@@ -3,40 +3,45 @@
 ```mermaid
 graph TD
     %% 画面要素の定義
-    Home[<b>ホーム画面</b><br/>アプリ起動時]
+    Home[<b>ホーム画面</b><br/>・言語選択<br/>・各画面への入り口]
     
-    %% ブロック選択画面を詳細に
-    BlockSelect[<b>クイズブロック選択画面</b><br/>・1〜200のブロックリスト<br/>・各ブロックの前回の点数表示<br/>・点数全件リセットボタン<br/>・<b>出題方向切り替え</b><br/>（日→越 ⇄ 越→日）]
+    CharIntro[<b>キャラクター紹介画面</b><br/>・ロースちゃん/博士の設定確認]
+    
+    WordList[<b>単語一覧画面</b><br/>・辞書機能<br/>・全単語の音声確認]
 
-    %% クイズループ（6回）
+    BlockSelect[<b>ブロック選択画面</b><br/>・1〜200のリスト<br/>・最高得点の表示<br/>・出題方向の切り替え]
+
     subgraph QuizLoop [クイズサイクル（6回繰り返し）]
-        QuizMain[<b>クイズ画面</b><br/>3択から選択]
-        AnswerDetail[<b>回答・解説表示</b><br/>訳・品詞・音声・例文]
+        QuizMain[<b>クイズ画面</b><br/>・問題表示/TTS再生<br/>・3択選択]
+        AnswerDetail[<b>詳細カード展開</b><br/>・正誤判定<br/>・品詞/例文/音声の確認]
         
-        QuizMain -->|回答する| AnswerDetail
-        AnswerDetail -->|次へ| QuizMain
+        QuizMain -->|解答をタップ| AnswerDetail
+        AnswerDetail -->|「次の問題へ」をタップ| QuizMain
     end
 
-    %% 結果発表画面
-    Result[<b>結果発表画面</b><br/>今回のスコア表示]
+    Ad[<b>インタースティシャル広告</b><br/>※マージン確保と収益化]
+
+    Result[<b>結果発表画面</b><br/>・スコア表示<br/>・博士の格言]
 
     %% メインの遷移
     Home <==> BlockSelect
-    BlockSelect ==>|ブロックを選択して開始| QuizMain
-    QuizLoop ==>|6問終了| Result
-    Result ==>|確認ボタン| BlockSelect
+    Home <==> WordList
+    Home <==> CharIntro
 
-    %% 中止アクション（点数カウントなしで戻る）
-    QuizMain -.->|中止ボタン| BlockSelect
-    AnswerDetail -.->|中止ボタン| BlockSelect
+    BlockSelect ==>|ブロックを選択して開始| QuizMain
+    
+    QuizLoop ==>|6問終了| Ad
+    Ad ==> Result
+    
+    Result ==>|「一覧に戻る」| BlockSelect
+    Result ==>|「ホームに戻る」| Home
+
+    %% 中止アクション
+    QuizMain -.->|左上「×」で戻る| BlockSelect
 
     %% スタイルの調整
-    %% 読みやすさを考慮したカラーパレット
-    style Home fill:#f9f,stroke:#333,stroke-width:2px,color:black
-    style BlockSelect fill:#bbf,stroke:#333,stroke-width:2px,color:black
-    style Result fill:#bfb,stroke:#333,stroke-width:2px,color:black
-    style QuizLoop fill:#1a237e,stroke:#333,stroke-width:1px,color:#fff
-    style QuizMain fill:#f5f5f5,stroke:#333,stroke-width:1px,color:black
-    style AnswerDetail fill:#f5f5f5,stroke:#333,stroke-width:1px,color:black
-    
-    %% 中止ルートを赤色の破線にする
+    style Home fill:#d32f2f,stroke:#333,stroke-width:2px,color:white
+    style BlockSelect fill:#1976d2,stroke:#333,stroke-width:2px,color:white
+    style QuizMain fill:#388e3c,stroke:#333,stroke-width:2px,color:white
+    style Result fill:#fbc02d,stroke:#333,stroke-width:2px,color:black
+    style Ad fill:#757575,stroke:#333,stroke-width:2px,color:white
