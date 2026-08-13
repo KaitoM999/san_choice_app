@@ -14,8 +14,8 @@ class _GlobalBannerAdState extends State<GlobalBannerAd> {
   bool _isAdLoaded = false;
 
   final String adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
-      : 'ca-app-pub-3940256099942544/2934735716';
+      ? 'ca-app-pub-8282996158486757/2396404131'
+      : 'ca-app-pub-8282996158486757/4392620892';
 
   @override
   void initState() {
