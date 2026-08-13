@@ -53,8 +53,8 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
   bool _isInterstitialAdReady = false;
 
   final String interstitialAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/1033173712'
-      : 'ca-app-pub-3940256099942544/4411468910';
+      ? 'ca-app-pub-8282996158486757/6242269475'
+      : 'ca-app-pub-8282996158486757/2891228159';
 
   @override
   void initState() {
